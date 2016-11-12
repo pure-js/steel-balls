@@ -4,7 +4,8 @@ module.exports = (gulp, plugins, paths) =>
       .pipe(plugins.plumber())
       .pipe(plugins.sourcemaps.init())
       .pipe(plugins.stylus({
-        compress: true
+        'compress': true,
+        'include css': true
       }))
       .pipe(plugins.sourcemaps.write(''))
       .pipe(gulp.dest(paths.build));

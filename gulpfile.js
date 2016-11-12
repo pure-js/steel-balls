@@ -8,6 +8,7 @@ const paths = {
   stylus: 'src/main.styl',
   stylusWatch: 'src/*.styl',
   js: 'src/main.js',
+  fonts: 'bower_components/font-awesome/fonts/*.*',
   build: 'build/'
 };
 
@@ -28,9 +29,14 @@ gulp.task('watch', function() {
   gulp.watch(paths.img, ['copy']);
 });
 
-gulp.task('copy', () =>
+gulp.task('copy', ['copy-fonts'], () =>
   gulp.src(paths.img)
     .pipe(gulp.dest(paths.build + 'img'))
+);
+
+gulp.task('copy-fonts', () =>
+  gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.build + 'fonts'))
 );
 
 // Static server
