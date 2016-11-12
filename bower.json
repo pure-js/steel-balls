@@ -1,0 +1,23 @@
+{
+  "name": "stballs",
+  "description": "stballs website",
+  "main": "index.js",
+  "authors": [
+    "pure-js"
+  ],
+  "license": "none",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "stylus-grid-constructor": "*"
+  },
+  "devDependencies": {
+    "font-awesome": "fontawesome#^4.7.0"
+  }
+}
