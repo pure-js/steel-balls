@@ -1,12 +1,14 @@
 const gulp = require('gulp'),
   plugins = require('gulp-load-plugins')(),
+  webpack = require('webpack-stream'),
+  ghPages = require('gulp-gh-pages'),
   browserSync = require('browser-sync').create();
 
 const paths = {
   img: 'assets/*.{jpg,png}',
   pug: 'src/index.pug',
   stylus: 'src/main.styl',
-  stylusWatch: 'src/*.styl',
+  stylusWatch: 'src/**/*.styl',
   js: 'src/main.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
   build: 'build/'
@@ -50,8 +52,14 @@ gulp.task('serve', function() {
   });
 });
 
+gulp.task('webpack', () =>
+  gulp.src('src/entry.js')
+    .pipe(webpack())
+    .pipe(gulp.dest(paths.build + 'js'))
+);
+
 gulp.task('deploy', ['build'], () =>
-  gulp.src(paths.dist + '**/*')
+  gulp.src(paths.build + '**/*')
     .pipe(ghPages())
 );
 

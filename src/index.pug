@@ -12,14 +12,15 @@ html(lang='ru')
       .container
         .row
           .col-xs-12
-            i.fa.fa-bars
-            nav
-              a(href='#about') О мастерской
-              a(href='#what-we-can-to-do') Что мы можем делать?
-              a(href='#how-to-make-an-order') Как сделать заказ?
-              a(href='#our-advantages') Наши преимущества
-              a(href='#reviews') Отзывы клиентов
-              a(href='#questions-and-answers') Ваши вопросы, наши ответы
+            button.nav-btn(type='button')
+              i.nav-btn__icon.fa.fa-bars
+            nav.nav
+              a.nav__item(href='#about') О мастерской
+              a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
+              a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
+              a.nav__item(href='#our-advantages') Наши преимущества
+              a.nav__item(href='#reviews') Отзывы клиентов
+              a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
           .col-xs-6
             a.header-phone(href='tel:+79006221818') +7 900 622-18-18
           .col-xs-6.align-right
