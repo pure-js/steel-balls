@@ -33,3 +33,8 @@ And open [http://localhost:3000](localhost:3000) in a browser if it's not happen
     magick convert 'assets/welding.jpg' -crop 991x+0+0 'assets/bg-md.jpg'
     magick convert 'assets/welding.jpg' -crop 1119x+0+0 'assets/bg-lg.jpg'
     // magick convert 'assets/welding.jpg' -crop 543x+0+0 'assets/bg-xl.jpg'
+    
+## TODO
+- go to flexbox
+- centralize header elements
+- smooth scrolling
