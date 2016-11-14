@@ -1,7 +1,6 @@
 const gulp = require('gulp'),
-  plugins = require('gulp-load-plugins')(),
   webpack = require('webpack-stream'),
-  ghPages = require('gulp-gh-pages'),
+  plugins = require('gulp-load-plugins')(),
   browserSync = require('browser-sync').create();
 
 const paths = {
@@ -60,7 +59,7 @@ gulp.task('webpack', () =>
 
 gulp.task('deploy', ['build'], () =>
   gulp.src(paths.build + '**/*')
-    .pipe(ghPages())
+    .pipe(plugins.ghPages())
 );
 
 // The default task (called when you run `gulp` from cli)
