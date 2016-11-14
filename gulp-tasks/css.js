@@ -7,6 +7,10 @@ module.exports = (gulp, plugins, paths) =>
         'compress': true,
         'include css': true
       }))
+      .pipe(plugins.uncss({
+        html: ['build/index.html']
+      }))
+      .pipe(plugins.cssnano())
       .pipe(plugins.sourcemaps.write(''))
       .pipe(gulp.dest(paths.build));
   }

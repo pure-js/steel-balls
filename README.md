@@ -20,7 +20,7 @@ Run the following commands
     bower i
     gulp
 
-And open http://localhost:3000 in a browser if it not happen automatically.
+And open [http://localhost:3000](localhost:3000) in a browser if it's not happen automatically.
 
 ## For deploy
 
