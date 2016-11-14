@@ -6,23 +6,37 @@ html(lang='ru')
     meta(name='robots' content='noindex')
     title Steel balls
     link(rel='stylesheet' href='main.css')
-    link(href='https://fonts.googleapis.com/css?family=PT+Sans&amp;subset=cyrillic' rel='stylesheet')
+    link(href='https://fonts.googleapis.com/css?family=Lobster|PT+Sans&amp;subset=cyrillic' rel='stylesheet')
   body
-    header.full-screen-img
+    header.header
       .container
         .row
-          .col-xs-12
-            button.nav-btn(type='button')
-              i.nav-btn__icon.fa.fa-bars
-            nav.nav.hidden
-              a.nav__item(href='#about') О мастерской
-              a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
-              a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
-              a.nav__item(href='#our-advantages') Наши преимущества
-              a.nav__item(href='#reviews') Отзывы клиентов
-              a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+          .col-xs-2
+            .centralize
+              button.nav-btn(type='button')
+                i.nav-btn__icon.fa.fa-bars
+          .col-xs-8
+            h1.main-heading Steel Balls
+          .col-xs-2
+            .centralize
+              a.header-phone(href='tel:+79006221818')
+                i.header-phone__icon.fa.fa-phone(aria-hidden='true')
+    .container
+      .row
+        .col-xs-12
+          nav.nav.hidden
+            a.nav__item(href='#about') О мастерской
+            a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
+            a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
+            a.nav__item(href='#our-advantages') Наши преимущества
+            a.nav__item(href='#reviews') Отзывы клиентов
+            a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+          //.col-md-4
+          //  a.header-phone(href='tel:+79006221818') +7 900 622-18-18
+    //header.full-screen-img
+      .container
+        .row
           .col-xs-6
-            a.header-phone(href='tel:+79006221818') +7 900 622-18-18
           .col-xs-6.align-right
             a.header-email(href='mailto:master@stballs.ru') master@stballs.ru
           .col-xs-12

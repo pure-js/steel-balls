@@ -11,9 +11,14 @@ pt-sans()
   font-weight 400
 
 @require 'stylesheets/nav'
+@require 'stylesheets/section'
+@require 'stylesheets/header'
 
 *, body
   margin: 0
+
+html, body
+  height 100%
 
 .full-screen-img
   background: #000 url(img/bg-xs.jpg) no-repeat 50% 0
@@ -55,55 +60,6 @@ pt-sans()
 $my-breakpoints = 544px, 768px, 992px, 1200px
 grid-constructor(12, 15px, $default-suffixes, $my-breakpoints)
 
-.syncer
-  background: #FBFBFB
-  padding: 20px 0
-
-.syncer_second
-  background: #f8f8f8
-
-.syncer_white
-  background: #fff
-
-.syncer-text
-  color #000
-  font-size: 16px
-  pt-sans()
-
-.syncer-heading
-  color #000
-  font-size 40px
-  //text-transform: uppercase
-  pt-sans()
-  text-align: center
-  &:before
-    border-top: 3px solid #C65800
-    content: ''
-    width: 30px
-    display: block
-    margin: 0 auto 4px
-
-.main-heading
-  pt-sans()
-  color #fff
-  font-size: 36px
-  text-align: center
-
-.centralize
-  display: flex
-  justify-content: center
-  align-items: center
-  height: 100vh
-
-.header-phone
-  pt-sans()
-  color #fff
-  font-size 19px
-
-.header-email
-  pt-sans()
-  color #fff
-  font-size 19px
 
 .align-right
   text-align: right
