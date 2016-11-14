@@ -1,6 +1,6 @@
 const gulp = require('gulp'),
-  webpack = require('webpack-stream'),
   plugins = require('gulp-load-plugins')(),
+  webpack = require('webpack-stream'),
   browserSync = require('browser-sync').create();
 
 const paths = {
