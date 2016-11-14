@@ -8,7 +8,8 @@ module.exports = (gulp, plugins, paths) =>
         'include css': true
       }))
       .pipe(plugins.uncss({
-        html: ['build/index.html']
+        html: ['build/index.html'],
+        ignore: ['.hidden']
       }))
       .pipe(plugins.cssnano())
       .pipe(plugins.sourcemaps.write(''))

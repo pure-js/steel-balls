@@ -16,18 +16,18 @@ pt-sans()
   margin: 0
 
 .full-screen-img
-  background: #000 url(img/bg-xs.jpg) no-repeat 0 50%
+  background: #000 url(img/bg-xs.jpg) no-repeat 50% 0
   height: 100vh
   box-sizing: border-box
   padding: 15px 0
   @media (min-width: 544px)
-    background: #000 url(img/bg-sm.jpg) no-repeat 0 50%
+    background: #000 url(img/bg-sm.jpg) no-repeat 50% 0
   @media (min-width: 768px)
-    background: #000 url(img/bg-md.jpg) no-repeat 0 50%
+    background: #000 url(img/bg-md.jpg) no-repeat 50% 0
   @media (min-width: 992px)
-    background: #000 url(img/bg-lg.jpg) no-repeat 0 50%
+    background: #000 url(img/bg-lg.jpg) no-repeat 50% 0
   @media (min-width: 1200px)
-    background: #000 url(img/welding.jpg) no-repeat 0 50%
+    background: #000 url(img/welding.jpg) no-repeat 50% 0
 
 @media (min-width: 544px)
   .container
@@ -110,3 +110,6 @@ grid-constructor(12, 15px, $default-suffixes, $my-breakpoints)
 
 .img
   max-width: 100%
+
+.hidden
+  display none

@@ -51,21 +51,21 @@ gulp.task('serve', function() {
   });
 });
 
-gulp.task('img', () =>
-  gulp.src(paths.img)
-    .pipe(plugins.responsive({
-      'welding.png': [
-        {
-          width: 575,
-          rename: 'bg-xs.jpg'
-        },{
-          width: 200 * 2,
-          rename: 'bg@2x.png'
-        }
-      ]
-    }))
-    .pipe(gulp.dest(paths.img))
-);
+// gulp.task('img', () =>
+//   gulp.src(paths.img)
+//     .pipe(plugins.responsive({
+//       'welding.png': [
+//         {
+//           width: 575,
+//           rename: 'bg-xs.jpg'
+//         },{
+//           width: 200 * 2,
+//           rename: 'bg@2x.png'
+//         }
+//       ]
+//     }))
+//     .pipe(gulp.dest(paths.img))
+// );
 
 gulp.task('webpack', () =>
   gulp.src('src/entry.js')
