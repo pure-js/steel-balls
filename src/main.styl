@@ -6,6 +6,9 @@
   font-weight normal
   font-style normal
 
+@require '../bower_components/stylus-grid-constructor/src/grid-flex'
+grid-flex()
+
 pt-sans()
   font-family 'PT Sans', sans-serif
   font-weight 400
@@ -54,12 +57,6 @@ html, body
   .container
     width: 1140px
     max-width: 100%
-
-@require '../bower_components/stylus-grid-constructor/src/grid-constructor'
-
-$my-breakpoints = 544px, 768px, 992px, 1200px
-grid-constructor(12, 15px, $default-suffixes, $my-breakpoints)
-
 
 .align-right
   text-align: right

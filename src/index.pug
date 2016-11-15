@@ -1,12 +1,6 @@
 doctype
 html(lang='ru')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name='robots' content='noindex')
-    title Steel balls
-    link(rel='stylesheet' href='main.css')
-    link(href='https://fonts.googleapis.com/css?family=Lobster|PT+Sans&amp;subset=cyrillic' rel='stylesheet')
+  include head.pug
   body
     header.header
       .container
@@ -16,11 +10,11 @@ html(lang='ru')
               button.nav-btn(type='button')
                 i.nav-btn__icon.fa.fa-bars
           .col-xs-8
-            h1.main-heading Steel Balls
+            h1.main-heading
+              a.main-heading__link(href='#') Steel Balls
           .col-xs-2
-            .centralize
-              a.header-phone(href='tel:+79006221818')
-                i.header-phone__icon.fa.fa-phone(aria-hidden='true')
+            a.header-phone(href='tel:+79006221818')
+              i.header-phone__icon.fa.fa-phone(aria-hidden='true')
     .container
       .row
         .col-xs-12

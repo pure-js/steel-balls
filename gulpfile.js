@@ -6,6 +6,7 @@ const gulp = require('gulp'),
 const paths = {
   img: 'assets/*.{jpg,png}',
   pug: 'src/index.pug',
+  pugWatch: 'src/**/*.pug',
   stylus: 'src/main.styl',
   stylusWatch: 'src/**/*.styl',
   js: 'src/main.js',
@@ -25,7 +26,7 @@ gulp.task('js', getTask('js'));
 // Rerun the task when a file changes
 gulp.task('watch', function() {
   gulp.watch(paths.stylusWatch, ['css']);
-  gulp.watch(paths.pug, ['html']);
+  gulp.watch(paths.pugWatch, ['html']);
   gulp.watch(paths.js, ['js']);
   gulp.watch(paths.img, ['copy']);
 });

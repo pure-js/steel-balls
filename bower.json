@@ -14,10 +14,10 @@
     "test",
     "tests"
   ],
-  "dependencies": {
-    "stylus-grid-constructor": "*"
-  },
   "devDependencies": {
     "font-awesome": "fontawesome#^4.7.0"
+  },
+  "dependencies": {
+    "stylus-grid-constructor": "^2.0.1"
   }
 }
