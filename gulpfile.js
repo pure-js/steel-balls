@@ -23,14 +23,6 @@ gulp.task('css', getTask('css'));
 gulp.task('html', getTask('html'));
 gulp.task('js', getTask('js'));
 
-// Rerun the task when a file changes
-gulp.task('watch', function() {
-  gulp.watch(paths.stylusWatch, ['css']);
-  gulp.watch(paths.pugWatch, ['html']);
-  gulp.watch(paths.js, ['js']);
-  gulp.watch(paths.img, ['copy']);
-});
-
 gulp.task('copy', ['copy-fonts'], () =>
   gulp.src(paths.img)
     .pipe(gulp.dest(paths.build + 'img'))
@@ -41,8 +33,19 @@ gulp.task('copy-fonts', () =>
     .pipe(gulp.dest(paths.build + 'fonts'))
 );
 
+gulp.task('css-watch', ['css'], reload());
+gulp.task('html-watch', ['html'], reload());
+gulp.task('js-watch', ['js'], reload());
+
+function reload() {
+  return function(done) {
+    browserSync.reload();
+    done();
+  }
+}
+
 // Static server
-gulp.task('serve', function() {
+gulp.task('serve', ['html'], function() {
   browserSync.init({
     server: {
       baseDir: 'build',
@@ -50,6 +53,11 @@ gulp.task('serve', function() {
     },
     browser: 'google chrome'
   });
+
+  gulp.watch(paths.stylusWatch, ['css-watch']);
+  gulp.watch(paths.pugWatch, ['html-watch']);
+  gulp.watch(paths.js, ['js-watch']);
+  gulp.watch(paths.img, ['copy']);
 });
 
 // gulp.task('img', () =>
@@ -81,5 +89,5 @@ gulp.task('deploy', ['build'], () =>
 
 // The default task (called when you run `gulp` from cli)
 gulp.task('build', ['html', 'css', 'js', 'copy']);
-gulp.task('dev', ['build', 'watch', 'serve']);
+gulp.task('dev', ['build', 'serve']);
 gulp.task('default', ['dev']);
