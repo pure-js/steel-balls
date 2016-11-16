@@ -13,6 +13,8 @@ pt-sans()
   font-family 'PT Sans', sans-serif
   font-weight 400
 
+@require 'stylesheets/media'
+
 @require 'stylesheets/nav'
 @require 'stylesheets/section'
 @require 'stylesheets/header'
@@ -24,37 +26,37 @@ pt-sans()
 html, body
   height 100%
 
-.full-screen-img
-  background: #000 url(img/bg-xs.jpg) no-repeat 50% 0
-  height: 100vh
-  box-sizing: border-box
-  padding: 15px 0
-  @media (min-width: 544px)
-    background: #000 url(img/bg-sm.jpg) no-repeat 50% 0
-  @media (min-width: 768px)
-    background: #000 url(img/bg-md.jpg) no-repeat 50% 0
-  @media (min-width: 992px)
-    background: #000 url(img/bg-lg.jpg) no-repeat 50% 0
-  @media (min-width: 1200px)
-    background: #000 url(img/welding.jpg) no-repeat 50% 0
+//.full-screen-img
+//  background: #000 url(img/bg-xs.jpg) no-repeat 50% 0
+//  height: 100vh
+//  box-sizing: border-box
+//  padding: 15px 0
+//  @media (min-width: 544px)
+//    background: #000 url(img/bg-sm.jpg) no-repeat 50% 0
+//  @media (min-width: 768px)
+//    background: #000 url(img/bg-md.jpg) no-repeat 50% 0
+//  @media (min-width: 992px)
+//    background: #000 url(img/bg-lg.jpg) no-repeat 50% 0
+//  @media (min-width: 1200px)
+//    background: #000 url(img/welding.jpg) no-repeat 50% 0
 
-@media (min-width: 544px)
++media($sm)
   .container
     width: 540px
     max-width: 100%
     margin: 0 auto
 
-@media (min-width: 768px)
++media($md)
   .container
     width: 720px
     max-width: 100%
 
-@media (min-width: 992px)
++media($xl)
   .container
     width: 960px
     max-width: 100%
 
-@media (min-width: 1200px)
++media($lg)
   .container
     width: 1140px
     max-width: 100%
