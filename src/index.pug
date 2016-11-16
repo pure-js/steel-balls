@@ -5,16 +5,22 @@ html(lang='ru')
     header.header
       .container
         .row
-          .col-xs-2.col-md-4.centralize
-            button.nav-btn(type='button')
+          .col-xs-2.col-md-3.centralize
+            button.nav-btn.hidden-md-up(type='button')
               i.nav-btn__icon.fa.fa-bars
-          .col-xs-8.col-md-4
+          .col-xs-6.col-md-6.centralize
             h1.main-heading
               a.main-heading__link(href='#') Steel Balls
-          .col-xs-2.col-md-4.centralize.centralize_right
-            a.header-phone(href='tel:+79006221818')
-              i.header-phone__icon.fa.fa-phone(aria-hidden='true')
-              span.hidden +7 900 622-18-18
+          .col-xs-4.col-md-3
+            .row
+              .col-xs-6.col-md-12
+                a.header-phone(href='tel:+79006221818')
+                  i.header-phone__icon.fa.fa-phone(aria-hidden='true')
+                  span.hidden-sm-down +7 900 622-18-18
+              .col-xs-6.col-md-12
+                a.header-phone(href='mailto:master@stballs.ru')
+                  i.header-phone__icon.fa.fa-envelope(aria-hidden='true')
+                  span.hidden-sm-down master@stballs.ru
     .container
       .row
         .col-xs-12

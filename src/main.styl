@@ -15,10 +15,7 @@ pt-sans()
 
 @require 'stylesheets/media'
 
-@require 'stylesheets/nav'
-@require 'stylesheets/section'
-@require 'stylesheets/header'
-@require 'stylesheets/btn'
+@require 'stylesheets/*'
 
 *, body
   margin: 0
@@ -40,23 +37,23 @@ html, body
 //  @media (min-width: 1200px)
 //    background: #000 url(img/welding.jpg) no-repeat 50% 0
 
-+media($sm)
++m-min($sm)
   .container
     width: 540px
     max-width: 100%
     margin: 0 auto
 
-+media($md)
++m-min($md)
   .container
     width: 720px
     max-width: 100%
 
-+media($xl)
++m-min($xl)
   .container
     width: 960px
     max-width: 100%
 
-+media($lg)
++m-min($lg)
   .container
     width: 1140px
     max-width: 100%
