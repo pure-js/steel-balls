@@ -24,13 +24,20 @@ html(lang='ru')
     .container
       .row
         .col-xs-12
-          nav.nav.hidden
-            a.nav__item(href='#about') О мастерской
-            a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
-            a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
-            a.nav__item(href='#our-advantages') Наши преимущества
-            a.nav__item(href='#reviews') Отзывы клиентов
-            a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+          nav.nav.hidden-sm-down
+            .row
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#about') О мастерской
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#our-advantages') Наши преимущества
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#reviews') Отзывы клиентов
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
           //.col-md-4
           //  a.header-phone(href='tel:+79006221818') +7 900 622-18-18
     //header.full-screen-img

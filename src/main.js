@@ -3,9 +3,9 @@ let nav = document.querySelector('.nav');
 
 navBtn.addEventListener('click', function (e) {
   e.preventDefault();
-  toggleEl(nav);
+  toggleEl(nav, 'hidden-sm-down');
 });
 
-function toggleEl(el) {
-  el.classList.toggle('hidden');
+function toggleEl(el, cssClass) {
+  el.classList.toggle(cssClass);
 }
