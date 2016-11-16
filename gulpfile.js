@@ -4,13 +4,14 @@ const gulp = require('gulp'),
   browserSync = require('browser-sync').create();
 
 const paths = {
-  img: 'assets/*.{jpg,png}',
+  img: 'assets/**/*.{jpg,png}',
   pug: 'src/index.pug',
   pugWatch: 'src/**/*.pug',
   stylus: 'src/main.styl',
   stylusWatch: 'src/**/*.styl',
   js: 'src/main.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
+  dev: '.tmp/',
   build: 'build/'
 };
 
@@ -19,16 +20,30 @@ function getTask(task) {
 }
 
 // Get one .less file and render
-gulp.task('css', getTask('css'));
 gulp.task('html', getTask('html'));
+gulp.task('css', getTask('css'));
 gulp.task('js', getTask('js'));
 
+gulp.task('html-min', getTask('html-min'));
+gulp.task('css-min', getTask('css-min'));
+gulp.task('js-min', getTask('js-min'));
+
 gulp.task('copy', ['copy-fonts'], () =>
+  gulp.src(paths.img)
+    .pipe(gulp.dest(paths.dev + 'img'))
+);
+
+gulp.task('copy-fonts', () =>
+  gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.dev + 'fonts'))
+);
+
+gulp.task('copy-to-build', ['copy-fonts-to-build'], () =>
   gulp.src(paths.img)
     .pipe(gulp.dest(paths.build + 'img'))
 );
 
-gulp.task('copy-fonts', () =>
+gulp.task('copy-fonts-to-build', () =>
   gulp.src(paths.fonts)
     .pipe(gulp.dest(paths.build + 'fonts'))
 );
@@ -45,10 +60,10 @@ function reload() {
 }
 
 // Static server
-gulp.task('serve', ['html'], function() {
+gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: 'build',
+      baseDir: paths.dev,
       index: 'index.html'
     },
     browser: 'google chrome'
@@ -88,6 +103,6 @@ gulp.task('deploy', ['build'], () =>
 );
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('build', ['html', 'css', 'js', 'copy']);
-gulp.task('dev', ['build', 'serve']);
+gulp.task('build', ['html-min', 'css-min', 'js-min', 'copy-to-build']);
+gulp.task('dev', ['html', 'css', 'js', 'copy', 'serve']);
 gulp.task('default', ['dev']);
