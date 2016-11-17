@@ -1,33 +1,63 @@
 doctype
 html(lang='ru')
-  head
-    meta(charset='utf-8')
-    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name='robots', content='noindex')
-    title Steel balls
-    link(rel='stylesheet', href='main.css')
-    link(href='https://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet')
+  include head.pug
   body
-    header.full-screen-img
+    header.header
+      .container
+        .row
+          .col-xs-2.col-md-3.centralize-vertical.hidden-md-up
+            button.nav-btn(type='button')
+              //img.nav-btn__icon()
+              i.nav-btn__icon.fa.fa-bars(aria-hidden='true')
+          .col-xs-7.col-md-8
+            .row
+              .col-xs-12.centralize
+                h1.main-heading
+                  a.main-heading__link(href='#') Steel Balls
+              .col-xs-12.hidden-sm-down
+                p.main-heading__description Сварочная мастерская
+          .col-xs-3.col-md-4
+            a.header-phone(href='mailto:master@stballs.ru')
+              i.header-phone__icon.fa.fa-envelope-o(aria-hidden='true')
+              span.hidden-sm-down master@stballs.ru
+            a.header-phone(href='tel:+79006221818')
+              //img.header-phone__icon(src='img/icons/phone2.svg')
+              i.header-phone__icon.fa.fa-phone(aria-hidden='true')
+              //svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 1792')
+                path(d='M1408 1240q0 27-10 70.5t-21 68.5q-21 50-122 106-94 51-186 51-27 0-53-3.5t-57.5-12.5-47-14.5T856 1485t-49-18q-98-35-175-83-127-79-264-216T152 904q-48-77-83-175-3-9-18-49t-20.5-55.5-14.5-47T3.5 520 0 467q0-92 51-186 56-101 106-122 25-11 68.5-21t70.5-10q14 0 21 3 18 6 53 76 11 19 30 54t35 63.5 31 53.5q3 4 17.5 25t21.5 35.5 7 28.5q0 20-28.5 50t-62 55-62 53-28.5 46q0 9 5 22.5t8.5 20.5 14 24 11.5 19q76 137 174 235t235 174q2 1 19 11.5t24 14 20.5 8.5 22.5 5q18 0 46-28.5t53-62 55-62 50-28.5q14 0 28.5 7t35.5 21.5 25 17.5q25 15 53.5 31t63.5 35 54 30q70 35 76 53 3 7 3 21z')
+              span.hidden-sm-down +7 900 622-18-18
+    .container.hidden-sm-down
+      .row
+        .col-xs-12
+          nav.nav
+            .row
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#about') О мастерской
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#our-advantages') Наши преимущества
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#reviews') Отзывы клиентов
+              .col-xs-12.col-lg-2
+                a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+    section.work-area.tig-welding
       .container
         .row
           .col-xs-12
-            button.nav-btn(type='button')
-              i.nav-btn__icon.fa.fa-bars
-            nav.nav
-              a.nav__item(href='#about') О мастерской
-              a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
-              a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
-              a.nav__item(href='#our-advantages') Наши преимущества
-              a.nav__item(href='#reviews') Отзывы клиентов
-              a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
-          .col-xs-6
-            a.header-phone(href='tel:+79006221818') +7 900 622-18-18
-          .col-xs-6.align-right
-            a.header-email(href='mailto:master@stballs.ru') master@stballs.ru
+            a.btn-main.btn-main-margin(href='#') Сварка аргоном
+    section.work-area.making-furniture
+      .container
+        .row
           .col-xs-12
-            .centralize
-              h1.main-heading Сварочная мастерская <br>Steel balls
+            a.btn-main.btn-main-margin(href='#') Изготовление мебели
+    section.work-area.outdoor
+      .container
+        .row
+          .col-xs-12
+            a.btn-main.btn-main-margin(href='#') Выездная работа
     section.syncer
       .container
         .row
@@ -44,13 +74,13 @@ html(lang='ru')
             p.syncer-text В нашей мастерской мы изготавливаем различные металлоконструкции, мебель в стиле лофт, светильники с лампами Эдисона, дизайнерские украшения для квартир, магазинов, пространств, приусадебных участков и загородных домов. Изготавливаем консоли в стиле лофт, из прочной квадратной трубы, необычные, но особо прочные стеллажи из арматуры и полосы, сварные столы и трубы малого и большого диаметра. Работаем со всеми металлами с помощью аргонодуговой сварки.
             h3.syncer-text А именно:
             ul.syncer-text
-              li сварка столов, сварка стеллажей;
-              li сварка барных стульев и столов;
-              li сварка мебели в стиле лофт;
-              li сварка заборов, сварка оград;
-              li сварка решеток;
-              li сварка навесов, сварка козырьков;
-              li сварка кованных изделий;
+              li сварка столов, сварка стеллажей
+              li сварка барных стульев и столов
+              li сварка мебели в стиле лофт
+              li сварка заборов, сварка оград
+              li сварка решеток
+              li сварка навесов, сварка козырьков
+              li сварка кованных изделий
               li сварка велопарковок и т.д.
     section.syncer
       .container
@@ -121,19 +151,25 @@ html(lang='ru')
     footer
       .container
         .row
-          .col-xs-12
-            i.fa.fa-mobile
-            a(href='tel:+79006221818') +7 900 622-18-18
-          .col-xs-12
-            i.fa.fa-envelope
-            a(href='mailto:master@stballs.ru') master@stballs.ru
-          .col-xs-12
-            i.fa.fa-vk
-            a(href='https://vk.com/stballs') vk
-          .col-xs-12
-            i.fa.fa-instagram
-            a(href='https://instagram.com/steelballs.spb/') instagram
-          .col-xs-12
-            i.fa.fa-facebook
-            a(href='https://facebook.com/groups/stballs/') facebook
-            // script(src='main.min.js')
+          .col-xs-3.bg-phone.centralize
+            a.btn-social(href='tel:+79006221818')
+              i.btn-social__icon.fa.fa-phone(aria-hidden='true')
+              spam.hidden-sm-down +7 900 622-18-18
+          .col-xs-3.bg-email.centralize
+            a.btn-social(href='mailto:master@stballs.ru')
+              i.btn-social__icon.fa.fa-envelope-o(aria-hidden='true')
+              span.hidden-sm-down master@stballs.ru
+          .col-xs-2.bg-vk.centralize
+            a.btn-social(href='https://vk.com/stballs', target='_blank')
+              i.btn-social__icon.fa.fa-vk(aria-hidden='true')
+              span.hidden-sm-down vk
+          .col-xs-2.bg-instagram.centralize
+            a.btn-social(href='https://instagram.com/steelballs.spb/', target='_blank')
+              i.btn-social__icon.fa.fa-instagram(aria-hidden='true')
+              span.hidden-sm-down instagram
+          .col-xs-2.bg-facebook.centralize
+            a.btn-social(href='https://facebook.com/groups/stballs/', target='_blank')
+              i.btn-social__icon.fa.fa-facebook(aria-hidden='true')
+              span.hidden-sm-down facebook
+          //.col-xs-1.bg-phone.centralize
+    script(src='main.min.js')

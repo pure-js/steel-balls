@@ -1,99 +1,68 @@
 @require '../bower_components/font-awesome/css/font-awesome.min.css'
-@require 'stylesheets/nav'
+@font-face
+  font-family 'FontAwesome'
+  src url('fonts/fontawesome-webfont.eot?v=4.7.0')
+  src url('fonts/fontawesome-webfont.eot?#iefix&v=4.7.0') format('embedded-opentype'), url('fonts/fontawesome-webfont.woff2?v=4.7.0') format('woff2'), url('fonts/fontawesome-webfont.woff?v=4.7.0') format('woff'), url('fonts/fontawesome-webfont.ttf?v=4.7.0') format('truetype'), url('fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular') format('svg')
+  font-weight normal
+  font-style normal
 
+@require '../bower_components/stylus-grid-constructor/src/grid-flex'
+grid-flex()
 
-.full-screen-img
-  background: url(img/bg.jpg)
-  background-size: 400vh
-  width: 100%
-  height: 100vh
-  box-sizing: border-box
-  padding: 15px 0
+pt-sans()
+  font-family 'PT Sans', sans-serif
+  font-weight 400
+
+@require 'stylesheets/media'
+
+@require 'stylesheets/*'
 
 *, body
   margin: 0
 
-pt-sans()
-  font-family 'PT Sans', sans-serif
+html, body
+  height 100%
 
-@media (min-width: 576px)
+//.full-screen-img
+//  background: #000 url(img/bg-xs.jpg) no-repeat 50% 0
+//  height: 100vh
+//  box-sizing: border-box
+//  padding: 15px 0
+//  @media (min-width: 544px)
+//    background: #000 url(img/bg-sm.jpg) no-repeat 50% 0
+//  @media (min-width: 768px)
+//    background: #000 url(img/bg-md.jpg) no-repeat 50% 0
+//  @media (min-width: 992px)
+//    background: #000 url(img/bg-lg.jpg) no-repeat 50% 0
+//  @media (min-width: 1200px)
+//    background: #000 url(img/welding.jpg) no-repeat 50% 0
+
++m-min($sm)
   .container
     width: 540px
     max-width: 100%
     margin: 0 auto
 
-@media (min-width: 768px)
++m-min($md)
   .container
     width: 720px
     max-width: 100%
 
-@media (min-width: 992px)
++m-min($xl)
   .container
     width: 960px
     max-width: 100%
 
-@media (min-width: 1200px)
++m-min($lg)
   .container
     width: 1140px
     max-width: 100%
-
-@require '../bower_components/stylus-grid-constructor/src/grid-constructor'
-
-$my-breakpoints = 576px, 768px, 992px, 1200px
-grid-constructor(12, 15px, $default-suffixes, $my-breakpoints)
-
-.syncer
-  background: #FBFBFB
-  padding: 20px 0
-
-.syncer_second
-  background: #f8f8f8
-
-.syncer_white
-  background: #fff
-
-.syncer-text
-  color #000
-  font-size: 16px
-  pt-sans()
-
-.syncer-heading
-  color #000
-  font-size 28px
-  text-transform: uppercase
-  pt-sans()
-  text-align: center
-  &:before
-    border-top: 3px solid #C65800
-    content: ''
-    width: 30px
-    display: block
-    margin: 0 auto 4px
-
-.main-heading
-  pt-sans()
-  color #fff
-  font-size: 36px
-  text-align: center
-
-.centralize
-  display: flex
-  justify-content: center
-  align-items: center
-  height: 100vh
-
-.header-phone
-  pt-sans()
-  color #fff
-  font-size 19px
-
-.header-email
-  pt-sans()
-  color #fff
-  font-size 19px
 
 .align-right
   text-align: right
 
 .img
   max-width: 100%
+
+.hidden
+  display none

@@ -2,7 +2,9 @@ node_modules/
 bower_components/
 *.log
 .DS_Store
+.idea/
 
 build/
 dist/
 .publish/
+.tmp/

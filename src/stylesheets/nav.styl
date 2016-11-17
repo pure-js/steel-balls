@@ -1,14 +1,30 @@
+.nav-btn
+  background none
+  cursor pointer
+  border none
+  border-radius 3px
+  padding 0
+  &:focus
+    outline none
+
 .nav-btn__icon
-  color #fff
+  color #000
   font-size 34px
 
-.nav__item
-  color #fff
-  display: block
-  font-size: 25px
+.nav-btn__text
+  color #000
+  font-size 34px
+  pt-sans()
+  padding 0 0 0 13px
 
-.nav-btn
-  background: none
-  border none
-  &:focus
-    outline: none
+.nav
+  background #fff
+  &:after
+    position absolute
+    opacity .5
+
+.nav__item
+  pt-sans()
+  color #000
+  display block
+  font-size 25px

@@ -1,0 +1,15 @@
+$sm = 544px
+$md = 768px
+$lg = 992px
+$xl = 1200px
+
+$breakpoints = $sm, $md, $lg, $xl
+$suffixes = xs, sm, md, lg, xl
+
+m-min($width)
+  @media (min-width: $width)
+    {block}
+
+m-max($width)
+  @media (max-width: $width)
+    {block}

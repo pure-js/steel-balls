@@ -1,16 +1,17 @@
 const gulp = require('gulp'),
   plugins = require('gulp-load-plugins')(),
   webpack = require('webpack-stream'),
-  ghPages = require('gulp-gh-pages'),
   browserSync = require('browser-sync').create();
 
 const paths = {
-  img: 'assets/*.{jpg,png}',
+  img: 'assets/**/*.{jpg,png,svg}',
   pug: 'src/index.pug',
+  pugWatch: 'src/**/*.pug',
   stylus: 'src/main.styl',
   stylusWatch: 'src/**/*.styl',
   js: 'src/main.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
+  dev: '.tmp/',
   build: 'build/'
 };
 
@@ -19,38 +20,76 @@ function getTask(task) {
 }
 
 // Get one .less file and render
-gulp.task('css', getTask('css'));
 gulp.task('html', getTask('html'));
+gulp.task('css', getTask('css'));
 gulp.task('js', getTask('js'));
 
-// Rerun the task when a file changes
-gulp.task('watch', function() {
-  gulp.watch(paths.stylusWatch, ['css']);
-  gulp.watch(paths.pug, ['html']);
-  gulp.watch(paths.js, ['js']);
-  gulp.watch(paths.img, ['copy']);
-});
+gulp.task('html-min', getTask('html-min'));
+gulp.task('css-min', getTask('css-min'));
+gulp.task('js-min', getTask('js-min'));
 
 gulp.task('copy', ['copy-fonts'], () =>
   gulp.src(paths.img)
-    .pipe(gulp.dest(paths.build + 'img'))
+    .pipe(gulp.dest(paths.dev + 'img'))
 );
 
 gulp.task('copy-fonts', () =>
   gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.dev + 'fonts'))
+);
+
+gulp.task('copy-to-build', ['copy-fonts-to-build'], () =>
+  gulp.src(paths.img)
+    .pipe(gulp.dest(paths.build + 'img'))
+);
+
+gulp.task('copy-fonts-to-build', () =>
+  gulp.src(paths.fonts)
     .pipe(gulp.dest(paths.build + 'fonts'))
 );
+
+gulp.task('css-watch', ['css'], reload());
+gulp.task('html-watch', ['html'], reload());
+gulp.task('js-watch', ['js'], reload());
+
+function reload() {
+  return function(done) {
+    browserSync.reload();
+    done();
+  }
+}
 
 // Static server
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: 'build',
+      baseDir: paths.dev,
       index: 'index.html'
     },
-    browser: 'google chrome'
+    browser: ['chrome', 'google chrome']
   });
+
+  gulp.watch(paths.stylusWatch, ['css-watch']);
+  gulp.watch(paths.pugWatch, ['html-watch']);
+  gulp.watch(paths.js, ['js-watch']);
+  gulp.watch(paths.img, ['copy']);
 });
+
+// gulp.task('img', () =>
+//   gulp.src(paths.img)
+//     .pipe(plugins.responsive({
+//       'welding.png': [
+//         {
+//           width: 575,
+//           rename: 'bg-xs.jpg'
+//         },{
+//           width: 200 * 2,
+//           rename: 'bg@2x.png'
+//         }
+//       ]
+//     }))
+//     .pipe(gulp.dest(paths.img))
+// );
 
 gulp.task('webpack', () =>
   gulp.src('src/entry.js')
@@ -60,10 +99,10 @@ gulp.task('webpack', () =>
 
 gulp.task('deploy', ['build'], () =>
   gulp.src(paths.build + '**/*')
-    .pipe(ghPages())
+    .pipe(plugins.ghPages())
 );
 
 // The default task (called when you run `gulp` from cli)
-gulp.task('build', ['html', 'css', 'js', 'copy']);
-gulp.task('dev', ['build', 'watch', 'serve']);
+gulp.task('build', ['html-min', 'css-min', 'js-min', 'copy-to-build']);
+gulp.task('dev', ['html', 'css', 'js', 'copy', 'serve']);
 gulp.task('default', ['dev']);
