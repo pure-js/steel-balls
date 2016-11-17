@@ -75,21 +75,22 @@ gulp.task('serve', function() {
   gulp.watch(paths.img, ['copy']);
 });
 
-// gulp.task('img', () =>
-//   gulp.src(paths.img)
-//     .pipe(plugins.responsive({
-//       'welding.png': [
-//         {
-//           width: 575,
-//           rename: 'bg-xs.jpg'
-//         },{
-//           width: 200 * 2,
-//           rename: 'bg@2x.png'
-//         }
-//       ]
-//     }))
-//     .pipe(gulp.dest(paths.img))
-// );
+const spriteConfig = {
+  mode : {
+    css : {
+      render : {
+        css : true
+      }
+    }
+  }
+};
+
+
+gulp.task('svg-sprite', () =>
+  gulp.src('assets/icons/*.svg')
+    .pipe(plugins.svgSprite(spriteConfig))
+    .pipe(gulp.dest(paths.dev + 'img'))
+);
 
 gulp.task('webpack', () =>
   gulp.src('src/entry.js')
