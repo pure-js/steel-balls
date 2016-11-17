@@ -66,7 +66,7 @@ gulp.task('serve', function() {
       baseDir: paths.dev,
       index: 'index.html'
     },
-    browser: 'google chrome'
+    browser: ['chrome', 'google chrome']
   });
 
   gulp.watch(paths.stylusWatch, ['css-watch']);

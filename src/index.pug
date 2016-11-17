@@ -5,30 +5,27 @@ html(lang='ru')
     header.header
       .container
         .row
-          .col-xs-2.col-md-3.centralize
+          .col-xs-2.col-md-3.centralize-vertical
             button.nav-btn.hidden-md-up(type='button')
               i.nav-btn__icon.fa.fa-bars(aria-hidden='true')
-          .col-xs-6.col-md-6
+          .col-xs-7.col-md-6
             .row
-              .col-xs-12.centralize
+              .col-xs-12.centralize-vertical.centralize-horizontal
                 h1.main-heading
                   a.main-heading__link(href='#') Steel Balls
               .col-xs-12.hidden-sm-down
                 p.main-heading__description Сварочная мастерская
-          .col-xs-4.col-md-3
-            .row
-              .col-xs-6.col-md-12
-                a.header-phone(href='tel:+79006221818')
-                  i.header-phone__icon.fa.fa-phone(aria-hidden='true')
-                  span.hidden-sm-down +7 900 622-18-18
-              .col-xs-6.col-md-12
-                a.header-phone(href='mailto:master@stballs.ru')
-                  i.header-phone__icon.fa.fa-envelope(aria-hidden='true')
-                  span.hidden-sm-down master@stballs.ru
-    .container
+          .col-xs-3.col-md-3
+            a.header-phone(href='mailto:master@stballs.ru')
+              i.header-phone__icon.fa.fa-envelope-o(aria-hidden='true')
+              span.hidden-sm-down master@stballs.ru
+            a.header-phone(href='tel:+79006221818')
+              i.header-phone__icon.fa.fa-phone(aria-hidden='true')
+              span.hidden-sm-down +7 900 622-18-18
+    .container.hidden-sm-down
       .row
         .col-xs-12
-          nav.nav.hidden-sm-down
+          nav.nav
             .row
               .col-xs-12.col-lg-2
                 a.nav__item(href='#about') О мастерской
@@ -42,15 +39,19 @@ html(lang='ru')
                 a.nav__item(href='#reviews') Отзывы клиентов
               .col-xs-12.col-lg-2
                 a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
-    section.syncer
+    section.work-area.tig-welding
       .container
         .row
           .col-xs-12
-            a.btn-main.btn-main-margin(href='#')
-              span Сварка аргоном
-              img.img(src='img/work-area/argon.jpg')
+            a.btn-main.btn-main-margin(href='#') Сварка аргоном
+    section.work-area.making-furniture
+      .container
+        .row
           .col-xs-12
             a.btn-main.btn-main-margin(href='#') Изготовление мебели
+    section.work-area.outdoor
+      .container
+        .row
           .col-xs-12
             a.btn-main.btn-main-margin(href='#') Выездная работа
     section.syncer

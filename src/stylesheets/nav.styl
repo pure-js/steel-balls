@@ -1,16 +1,11 @@
 .nav-btn
-  background: none
+  background none
   cursor pointer
-  border 1px solid #000
+  border none
   border-radius 3px
+  padding 0
   &:focus
     outline none
-
-.nav
-  background #fff
-  &:after
-    position absolute
-    opacity .5
 
 .nav-btn__icon
   color #000
@@ -21,6 +16,12 @@
   font-size 34px
   pt-sans()
   padding 0 0 0 13px
+
+.nav
+  background #fff
+  &:after
+    position absolute
+    opacity .5
 
 .nav__item
   pt-sans()
