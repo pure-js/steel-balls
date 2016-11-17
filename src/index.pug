@@ -10,7 +10,7 @@ html(lang='ru')
               i.nav-btn__icon.fa.fa-bars(aria-hidden='true')
           .col-xs-7.col-md-8
             .row
-              .col-xs-12.centralize-vertical.centralize-horizontal
+              .col-xs-12.centralize
                 h1.main-heading
                   a.main-heading__link(href='#') Steel Balls
               .col-xs-12.hidden-sm-down
@@ -147,24 +147,25 @@ html(lang='ru')
     footer
       .container
         .row
-          .col-xs-2.bg-phone
-            a(href='tel:+79006221818')
-              i.fa.fa-mobile(aria-hidden='true')
+          .col-xs-3.bg-phone.centralize
+            a.btn-social(href='tel:+79006221818')
+              i.btn-social__icon.fa.fa-phone(aria-hidden='true')
               spam.hidden-sm-down +7 900 622-18-18
-          .col-xs-2.bg-email
-            a(href='mailto:master@stballs.ru')
-              i.fa.fa-envelope(aria-hidden='true')
+          .col-xs-3.bg-email.centralize
+            a.btn-social(href='mailto:master@stballs.ru')
+              i.btn-social__icon.fa.fa-envelope-o(aria-hidden='true')
               span.hidden-sm-down master@stballs.ru
-          .col-xs-2.bg-vk.centralize-horizontal
-            a(href='https://vk.com/stballs', target='_blank')
-              i.fa.fa-vk(aria-hidden='true')
+          .col-xs-2.bg-vk.centralize
+            a.btn-social(href='https://vk.com/stballs', target='_blank')
+              i.btn-social__icon.fa.fa-vk(aria-hidden='true')
               span.hidden-sm-down vk
-          .col-xs-2.bg-instagram.centralize-horizontal
-            a(href='https://instagram.com/steelballs.spb/', target='_blank')
-              i.fa.fa-instagram(aria-hidden='true')
+          .col-xs-2.bg-instagram.centralize
+            a.btn-social(href='https://instagram.com/steelballs.spb/', target='_blank')
+              i.btn-social__icon.fa.fa-instagram(aria-hidden='true')
               span.hidden-sm-down instagram
-          .col-xs-2.bg-facebook.centralize-horizontal
-            a(href='https://facebook.com/groups/stballs/', target='_blank')
-              i.fa.fa-facebook(aria-hidden='true')
+          .col-xs-2.bg-facebook.centralize
+            a.btn-social(href='https://facebook.com/groups/stballs/', target='_blank')
+              i.btn-social__icon.fa.fa-facebook(aria-hidden='true')
               span.hidden-sm-down facebook
+          //.col-xs-1.bg-phone.centralize
     script(src='main.min.js')
