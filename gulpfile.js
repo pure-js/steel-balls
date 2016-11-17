@@ -4,7 +4,7 @@ const gulp = require('gulp'),
   browserSync = require('browser-sync').create();
 
 const paths = {
-  img: 'assets/**/*.{jpg,png}',
+  img: 'assets/**/*.{jpg,png,svg}',
   pug: 'src/index.pug',
   pugWatch: 'src/**/*.pug',
   stylus: 'src/main.styl',
