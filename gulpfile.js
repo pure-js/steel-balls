@@ -7,7 +7,7 @@ const paths = {
   img: 'assets/**/*.{jpg,png,svg}',
   pug: 'src/index.pug',
   pugWatch: 'src/**/*.pug',
-  stylus: 'src/main.styl',
+  stylus: 'src/stylesheets/*.styl',
   stylusWatch: 'src/**/*.styl',
   js: 'src/main.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
@@ -24,8 +24,8 @@ gulp.task('html', getTask('html'));
 gulp.task('css', getTask('css'));
 gulp.task('js', getTask('js'));
 
-gulp.task('html-min', getTask('html-min'));
 gulp.task('css-min', getTask('css-min'));
+gulp.task('html-min', ['css-min'], getTask('html-min'));
 gulp.task('js-min', getTask('js-min'));
 
 gulp.task('copy', ['copy-fonts'], () =>

@@ -1,0 +1,29 @@
+*, body
+  margin: 0
+
+html, body
+  height 100%
+
++m-min($sm)
+  .container
+    width: 540px
+    max-width: 100%
+    margin: 0 auto
+
++m-min($md)
+  .container
+    width: 720px
+    max-width: 100%
+
++m-min($xl)
+  .container
+    width: 960px
+    max-width: 100%
+
++m-min($lg)
+  .container
+    width: 1140px
+    max-width: 100%
+
+@require '../../../bower_components/stylus-grid-constructor/src/grid-flex'
+grid-flex()
