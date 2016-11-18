@@ -8,8 +8,8 @@ html(lang='ru')
           .col-xs-2.col-md-3.centralize-vertical.hidden-md-up
             button.nav-btn(type='button')
               //img.nav-btn__icon()
-              svg.icon.icon-bars
-                use(xlink:href='#icon-bars')
+              //svg.icon.icon-bars
+              //  use(xlink:href='#icon-bars')
               i.nav-btn__icon.fa.fa-bars(aria-hidden='true')
           .col-xs-7.col-md-8
             .row
@@ -19,47 +19,40 @@ html(lang='ru')
               .col-xs-12.hidden-sm-down
                 p.main-heading__description Сварочная мастерская
           .col-xs-3.col-md-4
-            a.header-phone(href='mailto:master@stballs.ru')
-              i.header-phone__icon.fa.fa-envelope-o(aria-hidden='true')
-              span.hidden-sm-down master@stballs.ru
             a.header-phone(href='tel:+79006221818')
               //img.header-phone__icon(src='img/icons/phone2.svg')
-              i.header-phone__icon.fa.fa-phone(aria-hidden='true')
+              i.header-phone__icon.fa.fa-phone.header-phone-icon-margin(aria-hidden='true')
               //svg(xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1408 1792')
                 path(d='M1408 1240q0 27-10 70.5t-21 68.5q-21 50-122 106-94 51-186 51-27 0-53-3.5t-57.5-12.5-47-14.5T856 1485t-49-18q-98-35-175-83-127-79-264-216T152 904q-48-77-83-175-3-9-18-49t-20.5-55.5-14.5-47T3.5 520 0 467q0-92 51-186 56-101 106-122 25-11 68.5-21t70.5-10q14 0 21 3 18 6 53 76 11 19 30 54t35 63.5 31 53.5q3 4 17.5 25t21.5 35.5 7 28.5q0 20-28.5 50t-62 55-62 53-28.5 46q0 9 5 22.5t8.5 20.5 14 24 11.5 19q76 137 174 235t235 174q2 1 19 11.5t24 14 20.5 8.5 22.5 5q18 0 46-28.5t53-62 55-62 50-28.5q14 0 28.5 7t35.5 21.5 25 17.5q25 15 53.5 31t63.5 35 54 30q70 35 76 53 3 7 3 21z')
               span.hidden-sm-down +7 900 622-18-18
-    .container.hidden-sm-down
-      .row
-        .col-xs-12
-          nav.nav
-            .row
-              .col-xs-12.col-lg-2
-                a.nav__item(href='#about') О мастерской
-              .col-xs-12.col-lg-2
-                a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
-              .col-xs-12.col-lg-2
-                a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
-              .col-xs-12.col-lg-2
-                a.nav__item(href='#our-advantages') Наши преимущества
-              .col-xs-12.col-lg-2
-                a.nav__item(href='#reviews') Отзывы клиентов
-              .col-xs-12.col-lg-2
-                a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+            a.header-phone(href='mailto:master@stballs.ru')
+              i.header-phone__icon.fa.fa-envelope-o(aria-hidden='true')
+              span.hidden-sm-down master@stballs.ru
+    .hidden-sm-down.nav-container
+      nav.nav.container
+        a.nav__item(href='#about') О мастерской
+        a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
+        a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
+        a.nav__item(href='#our-advantages') Наши преимущества
+        a.nav__item(href='#reviews') Отзывы клиентов
+        a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+        a.nav__item(href='#portfolio') Наши работы
+        a.nav__item(href='#our-clients') Наши клиенты
     section.work-area.tig-welding
       .container
         .row
           .col-xs-12
-            a.btn-main.btn-main-margin(href='#') Сварка аргоном
+            a.work-area-btn.work-area-btn-margin(href='#') Сварка аргоном
     section.work-area.making-furniture
       .container
         .row
           .col-xs-12
-            a.btn-main.btn-main-margin(href='#') Изготовление мебели
+            a.work-area-btn.work-area-btn-margin(href='#') Изготовление мебели
     section.work-area.outdoor
       .container
         .row
           .col-xs-12
-            a.btn-main.btn-main-margin(href='#') Выездная работа
+            a.work-area-btn.work-area-btn-margin(href='#') Выездная работа
     section.syncer
       .container
         .row
@@ -128,24 +121,38 @@ html(lang='ru')
       .container
         .row
           .col-xs-12
-            h2.syncer-heading Наши работы
+            h2#portfolio.syncer-heading Наши работы
           .col-xs-12.col-sm-6
             img.img(src='img/bench.jpg')
-          .col-xs-12.col-sm-6
-            img.img(src='img/chairs.jpg')
+            .gallery-title
+              h3.gallery-heading Скамья лофт
+            //p Скамья лофт в прихожую, гостиную, в офис, в магазин. Специальный угол позволит поставить скамью вплотную к стене, если понизу высокий плинтус или проходит труба отопления. Материал: стальная труба, порошковая покраска, массив выкрашен под палисандр и покрыт мебельным лаком.
+          //.col-xs-12.col-sm-6
+          //  img.img(src='img/chairs.jpg')
+          //  h3.gallery-heading Барные стулья
           .col-xs-12.col-sm-6
             img.img(src='img/red-chair.jpg')
+            .gallery-title
+              h3.gallery-heading Барные стулья
+              span.gallery-client для Au Pont Rouge
           .col-xs-12.col-sm-6
             img.img(src='img/table.jpg')
+            .gallery-title
+              h3.gallery-heading Скамья лофт
           .col-xs-12.col-sm-6
             img.img(src='img/street.jpg')
+            .gallery-title
+              h3.gallery-heading Барные столики
+              span.gallery-client для Prosto vino
           .col-xs-12.col-sm-6
             img.img(src='img/what.jpg')
+            .gallery-title
+              h3.gallery-heading Скамья лофт
     section.syncer.syncer_white
       .container
         .row
           .col-xs-12
-            h2.syncer-heading Наши клиенты
+            h2#our-clients.syncer-heading Наши клиенты
           .col-xs-6.col-sm-6.col-md-4.col-lg-3
             img.img(src='img/etazi.jpg')
           .col-xs-6.col-sm-6.col-md-4.col-lg-3

@@ -19,6 +19,7 @@
 
 .nav
   background #fff
+  margin 3px 0
   &:after
     position absolute
     opacity .5
@@ -27,4 +28,16 @@
   pt-sans()
   color #000
   display block
-  font-size 25px
+  font-size 21px
+  text-decoration none
+  text-align center
+  border-bottom 1px solid #111
+  padding 15px 0 12px
+  &:last-child
+    border-bottom 0
+
+.nav-container
+  position absolute
+  z-index 1
+  background #fff
+  width 100%

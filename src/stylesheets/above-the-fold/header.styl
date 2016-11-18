@@ -1,13 +1,14 @@
+$black = #111
+
 .header
   border-bottom 1px solid #ddd
 
 .main-heading
   text-align center
-  //line-height 1
 
 .main-heading__link
   font-family 'Lobster', cursive
-  color #000
+  color $black
   font-size 36px
   text-decoration none
   line-height 1
@@ -18,14 +19,18 @@
 
 .header-phone
   pt-sans()
-  color #000
+  color $black
   font-size 19px
+  text-decoration none
 
 .header-phone__icon
-  color #000
+  color $black
   font-size 30px
+
+.header-phone-icon-margin
+  margin 4px 8px 0 0
 
 .header-email
   pt-sans()
-  color #000
+  color $black
   font-size 19px
