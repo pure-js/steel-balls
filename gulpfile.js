@@ -85,7 +85,6 @@ const spriteConfig = {
   }
 };
 
-
 gulp.task('svg-sprite', () =>
   gulp.src('assets/icons/*.svg')
     .pipe(plugins.svgSprite(spriteConfig))
