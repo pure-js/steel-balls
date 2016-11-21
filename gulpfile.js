@@ -9,7 +9,8 @@ const paths = {
   pugWatch: 'src/**/*.pug',
   stylus: 'src/stylesheets/*.styl',
   stylusWatch: 'src/**/*.styl',
-  js: 'src/main.js',
+  js: ['node_modules/fg-loadcss/src/cssrelpreload.js', 'node_modules/fg-loadcss/src/loadCSS.js', 'src/*.js'],
+  jsWatch: 'src/*.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
   dev: '.tmp/',
   build: 'build/'
@@ -71,7 +72,7 @@ gulp.task('serve', function() {
 
   gulp.watch(paths.stylusWatch, ['css-watch']);
   gulp.watch(paths.pugWatch, ['html-watch']);
-  gulp.watch(paths.js, ['js-watch']);
+  gulp.watch(paths.jsWatch, ['js-watch']);
   gulp.watch(paths.img, ['copy']);
 });
 
