@@ -2,6 +2,7 @@ const gulp = require('gulp'),
   plugins = require('gulp-load-plugins')(),
   webpack = require('webpack-stream'),
   del = require('del'),
+  critical = require('critical'),
   browserSync = require('browser-sync').create();
 
 const paths = {
@@ -97,6 +98,26 @@ const spriteConfig = {
     }
   }
 };
+
+function aboveTheFold() {
+  return critical.generate({
+    inline: true,
+    base: '.tmp/',
+    src: 'index.html',
+    dest: '.tmp/index-x.html',
+    // minify: true,
+    dimensions: [{
+      height: 500,
+      width: 300
+    }, {
+      height: 900,
+      width: 1200
+    }]
+  });
+}
+
+exports.aboveTheFold = aboveTheFold;
+gulp.task('critical', aboveTheFold);
 
 gulp.task('svg-sprite', () =>
   gulp.src('assets/icons/*.svg')

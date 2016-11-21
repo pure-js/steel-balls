@@ -29,6 +29,7 @@
     "webpack-stream": "^3.2.0"
   },
   "dependencies": {
+    "critical": "^0.8.0",
     "fg-loadcss": "^1.2.0",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-concat": "^2.6.1",
