@@ -32,25 +32,25 @@ gulp.task('css-min', getTask('css-min'));
 gulp.task('html-min', getTask('html-min'));
 gulp.task('js-min', getTask('js-min'));
 
-gulp.task('copy-fonts', () =>
-  gulp.src(paths.fonts)
-    .pipe(gulp.dest(paths.dev + 'fonts'))
-);
+function copyFonts() {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.dev + 'fonts'));
+}
 
-gulp.task('copy', gulp.series('copy-fonts', () =>
-  gulp.src(paths.img)
+function copy() {
+  return gulp.src(paths.img)
     .pipe(gulp.dest(paths.dev + 'img'))
-));
+}
 
-gulp.task('copy-fonts-to-build', () =>
-  gulp.src(paths.fonts)
-    .pipe(gulp.dest(paths.build + 'fonts'))
-);
+function copyFontsToBuild() {
+  return gulp.src(paths.fonts)
+    .pipe(gulp.dest(paths.build + 'fonts'));
+}
 
-gulp.task('copy-to-build', gulp.series('copy-fonts-to-build', () =>
-  gulp.src(paths.img)
-    .pipe(gulp.dest(paths.build + 'img'))
-));
+function copyToBuild() {
+  return gulp.src(paths.img)
+    .pipe(gulp.dest(paths.build + 'img'));
+}
 
 gulp.task('css-watch', gulp.series('css', reload()));
 gulp.task('html-watch', gulp.series('html', reload()));
@@ -72,6 +72,10 @@ function watch() {
 
 exports.watch = watch;
 exports.clean = clean;
+exports.copy = copy;
+exports.copyFonts = copyFonts;
+exports.copyToBuild = copyToBuild;
+exports.copyFontsToBuild = copyFontsToBuild;
 
 // Static server
 gulp.task('serve', function() {
@@ -106,14 +110,14 @@ gulp.task('webpack', () =>
     .pipe(gulp.dest(paths.build + 'js'))
 );
 
-const build = gulp.series('html-min', 'css-min', 'js-min', 'copy-to-build');
+const build = gulp.series('js-min', 'css-min', 'html-min', copyToBuild, copyFontsToBuild);
 
 gulp.task('deploy', gulp.series(build, () =>
   gulp.src(paths.build + '**/*')
     .pipe(plugins.ghPages())
 ));
 
-const dev = gulp.parallel('html', 'css', 'js', 'copy', 'serve', watch);
+const dev = gulp.parallel('html', 'css', 'js', copy, copyFonts, 'serve', watch);
 
 gulp.task('build', build);
 gulp.task('dev', dev);
