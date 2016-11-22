@@ -9,9 +9,13 @@ const paths = {
   img: 'assets/**/*.{jpg,png,svg}',
   pug: 'src/index.pug',
   pugWatch: 'src/**/*.pug',
-  stylus: 'src/stylesheets/*.styl',
+  stylus: 'src/stylesheets/main.styl',
   stylusWatch: 'src/**/*.styl',
-  js: ['node_modules/fg-loadcss/src/cssrelpreload.js', 'node_modules/fg-loadcss/src/loadCSS.js', 'src/*.js'],
+  jsES5: ['node_modules/fg-loadcss/src/cssrelpreload.js', 'node_modules/fg-loadcss/src/loadCSS.js'],
+  jsES6: ['src/*.js'],
+  get js() {
+    return this.jsES5.concat(this.jsES6)
+  },
   jsWatch: 'src/*.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
   dev: '.tmp/',
@@ -71,13 +75,6 @@ function watch() {
   gulp.watch(paths.img, gulp.series('copy'));
 }
 
-exports.watch = watch;
-exports.clean = clean;
-exports.copy = copy;
-exports.copyFonts = copyFonts;
-exports.copyToBuild = copyToBuild;
-exports.copyFontsToBuild = copyFontsToBuild;
-
 // Static server
 gulp.task('serve', function() {
   browserSync.init({
@@ -99,13 +96,27 @@ const spriteConfig = {
   }
 };
 
+function htmlBuild() {
+  return gulp.src(paths.pug)
+    .pipe(plugins.pug())
+    .pipe(gulp.dest(paths.build));
+}
+
+function cssBuild() {
+  return gulp.src(paths.stylus)
+    .pipe(plugins.stylus({
+      'include css': true
+    }))
+    .pipe(gulp.dest(paths.build))
+}
+
 function aboveTheFold() {
   return critical.generate({
     inline: true,
-    base: '.tmp/',
+    base: 'build/',
     src: 'index.html',
-    dest: '.tmp/index-x.html',
-    // minify: true,
+    dest: 'build/index.html',
+    minify: true,
     dimensions: [{
       height: 500,
       width: 300
@@ -116,8 +127,41 @@ function aboveTheFold() {
   });
 }
 
+function es5Min() {
+  return gulp.src(paths.jsES5)
+    // .pipe(plugins.uglify())
+    .pipe(gulp.dest(paths.build))
+}
+
+function es6Min() {
+  return gulp.src(paths.jsES6)
+    .pipe(plugins.babel({
+      presets: ['es2015']
+    }))
+    // .pipe(plugins.uglify())
+    .pipe(gulp.dest(paths.build))
+}
+
+function concat() {
+  return gulp.src('build/*.js')
+    .pipe(plugins.concat('main.min.js'))
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest(paths.build))
+}
+
+// Dev
+exports.watch = watch;
+exports.clean = clean;
+exports.copy = copy;
+exports.copyFonts = copyFonts;
+
+// Build
+exports.copyToBuild = copyToBuild;
+exports.copyFontsToBuild = copyFontsToBuild;
 exports.aboveTheFold = aboveTheFold;
-gulp.task('critical', aboveTheFold);
+exports.htmlBuild = htmlBuild;
+exports.es5Min = es5Min;
+exports.es6Min = es6Min;
 
 gulp.task('svg-sprite', () =>
   gulp.src('assets/icons/*.svg')
@@ -131,7 +175,7 @@ gulp.task('webpack', () =>
     .pipe(gulp.dest(paths.build + 'js'))
 );
 
-const build = gulp.series('js-min', 'css-min', 'html-min', copyToBuild, copyFontsToBuild);
+const build = gulp.series(cssBuild, htmlBuild, aboveTheFold, 'css-min', es5Min, es6Min, concat, 'html-min', copyToBuild, copyFontsToBuild);
 
 gulp.task('deploy', gulp.series(build, () =>
   gulp.src(paths.build + '**/*')

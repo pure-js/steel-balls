@@ -4,4 +4,5 @@ module.exports = (gulp, plugins, paths) => () =>
     .pipe(plugins.pug({
       pretty: true
     }))
+    .pipe(plugins.replace('<script src=\"main..min.js\"></script>', ''))
     .pipe(gulp.dest(paths.dev))
