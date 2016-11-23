@@ -1,5 +1,4 @@
 module.exports = (gulp, plugins, paths) => () =>
-  gulp.src(paths.js)
+  gulp.src(paths.jsES6)
     .pipe(plugins.plumber())
-    .pipe(plugins.rename('main.min.js'))
     .pipe(gulp.dest(paths.dev))

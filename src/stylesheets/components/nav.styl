@@ -19,7 +19,7 @@
 
 .nav
   background #fff
-  margin 3px 0
+  margin 3px auto
   &:after
     position absolute
     opacity .5
@@ -35,9 +35,17 @@
   padding 15px 0 12px
   &:last-child
     border-bottom 0
+  +m-min($md)
+    float left
+    padding 15px 10px 12px
+    border none
+    font-size 18px
 
 .nav-container
   position absolute
   z-index 1
   background #fff
   width 100%
+  +m-min($md)
+    position relative
+  overflow auto
