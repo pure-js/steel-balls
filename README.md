@@ -5,7 +5,7 @@ Install Node.js and npm if they are not already on your machine. You can do it u
 Also Install bower & gulp
 
     npm i -g bower
-    npm i -g gulp
+    npm i -g gulp-cli
 
 Then go to the next step.
 
