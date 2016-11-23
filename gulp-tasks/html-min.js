@@ -11,7 +11,7 @@ module.exports = (gulp, plugins, paths) => () =>
       removeScriptTypeAttributes: true,
       removeStyleLinkTypeAttributes: true,
       removeComments: true,
-      removeOptionalTags: true,
-      minifyURLs: true
+      removeOptionalTags: true
+      // minifyURLs: true
     }))
     .pipe(gulp.dest(paths.build))

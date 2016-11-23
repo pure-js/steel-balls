@@ -118,11 +118,30 @@ function aboveTheFold() {
     dest: 'build/index.html',
     minify: true,
     dimensions: [{
-      height: 500,
-      width: 300
+      // Nexus 5X
+      width: 412,
+      // Lumia 1520
+      height: 768
     }, {
-      height: 900,
-      width: 1200
+      // Nexus 5X - landscape
+      width: 732,
+      height: 412
+    }, {
+      // iPad
+      width: 768,
+      height: 1024
+    }, {
+      // Nexus 10
+      width: 800,
+      height: 1280
+    }, {
+      // Nexus 10 - landscape
+      width: 1280,
+      height: 800
+    }, {
+      // PC
+      width: 1920,
+      height: 1200
     }]
   });
 }
