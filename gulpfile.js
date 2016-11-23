@@ -196,10 +196,10 @@ gulp.task('webpack', () =>
 
 const build = gulp.series(cssBuild, htmlBuild, aboveTheFold, 'css-min', es5Min, es6Min, concat, 'html-min', copyToBuild, copyFontsToBuild);
 
-gulp.task('deploy', gulp.series(build, () =>
+gulp.task('deploy', () =>
   gulp.src(paths.build + '**/*')
     .pipe(plugins.ghPages())
-));
+);
 
 const dev = gulp.parallel('html', 'css', 'js', copy, copyFonts, 'serve', watch);
 
