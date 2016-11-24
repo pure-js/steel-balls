@@ -1,0 +1,12 @@
+extends layout.pug
+
+block stylesheets
+  link(rel='preload' href='https://fonts.googleapis.com/css?family=Lobster|PT+Sans&amp;subset=cyrillic' as='style' onload='this.rel="stylesheet"')
+  noscript
+    link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lobster|PT+Sans&amp;subset=cyrillic')
+  link(rel='preload' href='main.min.css' as='style' onload='this.rel="stylesheet"')
+  noscript
+    link(rel='stylesheet' href='main.min.css')
+
+block scripts
+  script(src='main.min.js')

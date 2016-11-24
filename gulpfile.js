@@ -7,16 +7,17 @@ const gulp = require('gulp'),
 
 const paths = {
   img: 'assets/**/*.{jpg,png,svg}',
-  pug: 'src/index.pug',
+  pugDev: 'src/index-dev.pug',
+  pugBuild: 'src/index-build.pug',
   pugWatch: 'src/**/*.pug',
   stylus: 'src/stylesheets/main.styl',
   stylusWatch: 'src/**/*.styl',
   jsES5: ['node_modules/fg-loadcss/src/cssrelpreload.js', 'node_modules/fg-loadcss/src/loadCSS.js'],
-  jsES6: ['src/*.js'],
+  jsES6: ['src/js/*.js'],
   get js() {
     return this.jsES5.concat(this.jsES6)
   },
-  jsWatch: 'src/*.js',
+  jsWatch: 'src/js/*.js',
   fonts: 'bower_components/font-awesome/fonts/*.*',
   dev: '.tmp/',
   build: 'build/'
@@ -27,6 +28,7 @@ function getTask(task) {
 }
 
 const clean = () => del([ 'build', '.tmp', '.publish' ]);
+const cleanBuild = () => del(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/entry.js', 'build/main.js']);
 
 // Get one .less file and render
 gulp.task('html', getTask('html'));
@@ -36,6 +38,7 @@ gulp.task('js', getTask('js'));
 gulp.task('css-min', getTask('css-min'));
 gulp.task('html-min', getTask('html-min'));
 gulp.task('js-min', getTask('js-min'));
+gulp.task('img-min', getTask('img-min'));
 
 function copyFonts() {
   return gulp.src(paths.fonts)
@@ -50,11 +53,6 @@ function copy() {
 function copyFontsToBuild() {
   return gulp.src(paths.fonts)
     .pipe(gulp.dest(paths.build + 'fonts'));
-}
-
-function copyToBuild() {
-  return gulp.src(paths.img)
-    .pipe(gulp.dest(paths.build + 'img'));
 }
 
 gulp.task('css-watch', gulp.series('css', reload()));
@@ -97,7 +95,7 @@ const spriteConfig = {
 };
 
 function htmlBuild() {
-  return gulp.src(paths.pug)
+  return gulp.src(paths.pugBuild)
     .pipe(plugins.pug())
     .pipe(gulp.dest(paths.build));
 }
@@ -175,12 +173,12 @@ exports.copy = copy;
 exports.copyFonts = copyFonts;
 
 // Build
-exports.copyToBuild = copyToBuild;
 exports.copyFontsToBuild = copyFontsToBuild;
 exports.aboveTheFold = aboveTheFold;
 exports.htmlBuild = htmlBuild;
 exports.es5Min = es5Min;
 exports.es6Min = es6Min;
+exports.cleanBuild = cleanBuild;
 
 gulp.task('svg-sprite', () =>
   gulp.src('assets/icons/*.svg')
@@ -194,7 +192,7 @@ gulp.task('webpack', () =>
     .pipe(gulp.dest(paths.build + 'js'))
 );
 
-const build = gulp.series(cssBuild, htmlBuild, aboveTheFold, 'css-min', es5Min, es6Min, concat, 'html-min', copyToBuild, copyFontsToBuild);
+const build = gulp.series(cssBuild, htmlBuild, aboveTheFold, 'css-min', es5Min, es6Min, concat, cleanBuild, 'html-min', 'img-min', copyFontsToBuild);
 
 gulp.task('deploy', () =>
   gulp.src(paths.build + '**/*')

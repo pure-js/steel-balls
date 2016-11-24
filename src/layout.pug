@@ -1,6 +1,11 @@
 doctype
 html(lang='ru')
-  include head.pug
+  head
+    meta(charset='utf-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='robots' content='noindex')
+    title Steel balls - Сварочная мастерская
+    block stylesheets
   body
     header.header
       .container
@@ -186,4 +191,4 @@ html(lang='ru')
             a.btn-social(href='https://facebook.com/groups/stballs/', target='_blank')
               i.btn-social__icon.fa.fa-facebook(aria-hidden='true')
               span.hidden-sm-down facebook
-    include footer.pug
+    block scripts

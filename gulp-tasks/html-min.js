@@ -1,10 +1,10 @@
 module.exports = (gulp, plugins, paths) => () =>
+  // TODO: add variable
   gulp.src('build/index.html')
     // .pipe(plugins.pug())
     // .pipe(plugins.inlineSource({
     //   rootpath: 'build'
     // }))
-    .pipe(plugins.replace('<script src=\"main.js\"></script>', ''))
     .pipe(plugins.htmlmin({
       collapseWhitespace: true,
       removeAttributeQuotes: true,
