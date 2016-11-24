@@ -27,7 +27,10 @@ function task(name) {
 }
 
 const clean = () => del([ 'build', '.tmp', '.publish' ]);
-const cleanBuild = () => del(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/entry.js', 'build/main.js', 'build/toggle.js', 'build/load.js']);
+
+//
+//---------- Dev tasks ------------//
+//
 
 function copyFonts() {
   return gulp.src(paths.fonts)
@@ -83,6 +86,34 @@ const spriteConfig = {
   }
 };
 
+gulp.task('svg-sprite', () =>
+  gulp.src('assets/icons/*.svg')
+    .pipe(plugins.svgSprite(spriteConfig))
+    .pipe(gulp.dest(paths.dev + 'img'))
+);
+
+exports.watch = watch;
+exports.clean = clean;
+exports.copy = copy;
+exports.copyFonts = copyFonts;
+exports.serve = serve;
+
+gulp.task('deploy', () =>
+  gulp.src(paths.build + '**/*')
+    .pipe(plugins.ghPages())
+);
+
+const css = task('css');
+
+const dev = gulp.parallel(task('html'), css, task('js'), copy, copyFonts, serve, watch);
+
+
+//
+//--------------- Build tasks --------------//
+//
+
+const cleanBuild = () => del(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/entry.js', 'build/main.js', 'build/toggle.js', 'build/load.js']);
+
 function htmlBuild() {
   return gulp.src(paths.pugBuild)
     .pipe(plugins.pug())
@@ -137,7 +168,7 @@ function aboveTheFold() {
 
 function es5Min() {
   return gulp.src(paths.jsES5)
-    // .pipe(plugins.uglify())
+  // .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.build))
 }
 
@@ -151,20 +182,12 @@ function es6Min() {
 }
 
 function concat() {
-  return gulp.src('build/*.js')
+  return gulp.src(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/load.js', 'build/entry.js', 'build/main.js', 'build/toggle.js'])
     .pipe(plugins.concat('main.min.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.build))
 }
 
-// Dev
-exports.watch = watch;
-exports.clean = clean;
-exports.copy = copy;
-exports.copyFonts = copyFonts;
-exports.serve = serve;
-
-// Build
 exports.copyFontsToBuild = copyFontsToBuild;
 exports.aboveTheFold = aboveTheFold;
 exports.htmlBuild = htmlBuild;
@@ -172,22 +195,7 @@ exports.es5Min = es5Min;
 exports.es6Min = es6Min;
 exports.cleanBuild = cleanBuild;
 
-gulp.task('svg-sprite', () =>
-  gulp.src('assets/icons/*.svg')
-    .pipe(plugins.svgSprite(spriteConfig))
-    .pipe(gulp.dest(paths.dev + 'img'))
-);
-
 const build = gulp.series(cssBuild, htmlBuild, aboveTheFold, task('css-min'), es5Min, es6Min, concat, cleanBuild, task('html-min'), task('img-min'), copyFontsToBuild);
-
-gulp.task('deploy', () =>
-  gulp.src(paths.build + '**/*')
-    .pipe(plugins.ghPages())
-);
-
-const css = task('css');
-
-const dev = gulp.parallel(task('html'), css, task('js'), copy, copyFonts, serve, watch);
 
 gulp.task('build', build);
 gulp.task('dev', dev);
