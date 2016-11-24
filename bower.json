@@ -15,9 +15,10 @@
     "tests"
   ],
   "devDependencies": {
-    "font-awesome": "fontawesome#^4.7.0"
+    "font-awesome": "^4.7.0"
   },
   "dependencies": {
     "stylus-grid-constructor": "^2.0.1"
-  }
+  },
+  "private": true
 }
