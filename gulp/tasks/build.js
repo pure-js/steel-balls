@@ -6,13 +6,7 @@ const gulp = require('gulp'),
   del = require('del'),
   critical = require('critical');
 
-module.exports = (gulp, plugins, paths) => gulp.series(cssBuild, htmlBuild, aboveTheFold, task('css-min'), es5Min, es6Min, concat, cleanBuild, task('html-min'), task('img-min'), copyFontsToBuild);
-
-function task(name) {
-  return require('./' + name)(gulp, plugins, paths);
-}
-
-const cleanBuild = () => del(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/entry.js', 'build/main.js', 'build/toggle.js', 'build/load.js']);
+module.exports = gulp.series(cssBuild, htmlBuild, aboveTheFold, cssMin, es5Min, es6Min, concat, cleanBuild, htmlMin, imgMin, copyFontsToBuild);
 
 function cssBuild() {
   return gulp.src(paths.stylus)
@@ -20,7 +14,7 @@ function cssBuild() {
       'include css': true
     }))
     .pipe(plugins.rename('main.min.css'))
-    .pipe(gulp.dest(paths.build))
+    .pipe(gulp.dest(paths.build));
 }
 
 function htmlBuild() {
@@ -37,38 +31,26 @@ function aboveTheFold() {
     src: 'index.html',
     dest: 'build/index.html',
     minify: true,
-    dimensions: [{
-      // Nexus 5X
-      width: 412,
-      // Lumia 1520
-      height: 768
-    }, {
-      // Nexus 5X - landscape
-      width: 732,
-      height: 412
-    }, {
-      // iPad
-      width: 768,
-      height: 1024
-    }, {
-      // Nexus 10
-      width: 800,
-      height: 1280
-    }, {
-      // Nexus 10 - landscape
-      width: 1280,
-      height: 800
-    }, {
-      // PC
-      width: 1920,
-      height: 1200
-    }]
+    dimensions: config.viewports
   });
+}
+
+function cssMin() {
+  return gulp.src(paths.stylus)
+    .pipe(plugins.stylus({
+      'compress': true,
+      'include css': true
+    }))
+    .pipe(plugins.uncss({
+      html: ['build/index.html']
+    }))
+    .pipe(plugins.cssnano())
+    .pipe(plugins.rename('main.min.css'))
+    .pipe(gulp.dest(paths.build));
 }
 
 function es5Min() {
   return gulp.src(paths.jsES5)
-  // .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.build))
 }
 
@@ -77,26 +59,40 @@ function es6Min() {
     .pipe(plugins.babel({
       presets: ['es2015']
     }))
-    // .pipe(plugins.uglify())
-    .pipe(gulp.dest(paths.build))
+    .pipe(gulp.dest(paths.build));
 }
 
 function concat() {
   return gulp.src(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/load.js', 'build/entry.js', 'build/main.js', 'build/toggle.js'])
     .pipe(plugins.concat('main.min.js'))
     .pipe(plugins.uglify())
-    .pipe(gulp.dest(paths.build))
+    .pipe(gulp.dest(paths.build));
+}
+
+function cleanBuild() {
+  return del(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/entry.js', 'build/main.js', 'build/toggle.js', 'build/load.js']);
+}
+
+function htmlMin() {
+  return gulp.src('build/index.html')
+    .pipe(plugins.htmlmin({
+      collapseWhitespace: true,
+      removeAttributeQuotes: true,
+      removeScriptTypeAttributes: true,
+      removeStyleLinkTypeAttributes: true,
+      removeComments: true,
+      removeOptionalTags: true
+    }))
+    .pipe(gulp.dest(paths.build));
+}
+
+function imgMin() {
+  return gulp.src(paths.img)
+    .pipe(plugins.imagemin())
+    .pipe(gulp.dest(paths.build + 'img'));
 }
 
 function copyFontsToBuild() {
   return gulp.src(paths.fonts)
     .pipe(gulp.dest(paths.build + 'fonts'));
 }
-
-exports.copyFontsToBuild = copyFontsToBuild;
-exports.aboveTheFold = aboveTheFold;
-exports.htmlBuild = htmlBuild;
-exports.es5Min = es5Min;
-exports.es6Min = es6Min;
-exports.cleanBuild = cleanBuild;
-
