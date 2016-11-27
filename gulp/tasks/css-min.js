@@ -5,8 +5,9 @@ module.exports = (gulp, plugins, paths) => () =>
       'include css': true
     }))
     .pipe(plugins.uncss({
-      html: ['build/index.html'],
-      ignore: ['.hidden']
+      html: ['build/index.html']
+      // ignore: ['.hidden']
     }))
     .pipe(plugins.cssnano())
+    .pipe(plugins.rename('main.min.css'))
     .pipe(gulp.dest(paths.build))
