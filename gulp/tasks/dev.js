@@ -57,7 +57,7 @@ function serve() {
 }
 
 function reload() {
-  return function(done) {
+  return function browserReload(done) {
     browserSync.reload();
     done();
   }

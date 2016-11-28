@@ -10,7 +10,7 @@ html(lang='ru')
     header.header
       .container
         .row
-          .col-xs-2.col-md-2.centralize-vertical.hidden-md-up
+          .col-xs-2.centralize-vertical.hidden-md-up
             button.nav-btn(type='button')
               //img.nav-btn__icon()
               //svg.icon.icon-bars
@@ -19,7 +19,7 @@ html(lang='ru')
           .col-xs-7.col-md-6
             h1.main-heading
               a.main-heading__link(href='#') Steel Balls
-          .col-xs-3.col-md-4
+          .col-xs-3.col-md-6
             a.header-phone(href='tel:+79006221818')
               //img.header-phone__icon(src='img/icons/phone2.svg')
               i.header-phone__icon.fa.fa-phone.header-phone-icon-margin(aria-hidden='true')
@@ -43,7 +43,7 @@ html(lang='ru')
         //a.nav__item(href='#reviews') Отзывы клиентов
         //a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
         //a.nav__item(href='#they-trust-us') Нам доверяют
-    section
+    section.under-fixed
       .container
         h1 Сварочная мастерская
       .work-area.making-furniture
@@ -83,6 +83,15 @@ html(lang='ru')
               li сварка навесов, сварка козырьков
               li сварка кованных изделий
               li сварка велопарковок и т.д.
+        .row
+          .col-xs-12
+            h3#our-advantages.heading-3 Наши преимущества
+            ul.syncer-text
+              li Собственное производство.
+              li Пожизненная гарантия на некоторые изделия.
+              li Изготовление в кратчайшие сроки.
+              li Выездная сварка.
+              li Работа с большими объемами.
     section.syncer
       .container
         .row
@@ -97,23 +106,12 @@ html(lang='ru')
             h2#argon.heading-2 Сварка в среде аргона
           .col-xs-12
             p.syncer-text Текст такой текст
-    section.syncer
-      .container
-        .row
-          .col-xs-12
-            h2#our-advantages.heading-2 Наши преимущества
-            ul.syncer-text
-              li Собственное производство.
-              li Пожизненная гарантия на некоторые изделия.
-              li Изготовление в кратчайшие сроки.
-              li Выездная сварка.
-              li Работа с большими объемами.
-    section.syncer
+    //- section.syncer
       .container
         .row
           .col-xs-12
             h2#reviews.heading-2 Отзывы клиентов
-    section.syncer
+    //- section.syncer
       .container
         .row
           .col-xs-12
@@ -123,7 +121,6 @@ html(lang='ru')
         .row
           .col-xs-12
             h2#portfolio.heading-2 Наши работы
-
         .row-img
           .img-xs-8
             img.img(src='img/bench.jpg' alt='скамья')
