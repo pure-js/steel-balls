@@ -17,12 +17,8 @@ html(lang='ru')
               //  use(xlink:href='#icon-bars')
               i.nav-btn__icon.fa.fa-bars(aria-hidden='true')
           .col-xs-7.col-md-6
-            .row
-              .col-xs-12.centralize
-                h1.main-heading
-                  a.main-heading__link(href='#') Steel Balls
-              .col-xs-12.hidden-sm-down
-                p.main-heading__description Сварочная мастерская
+            h1.main-heading
+              a.main-heading__link(href='#') Steel Balls
           .col-xs-3.col-md-4
             a.header-phone(href='tel:+79006221818')
               //img.header-phone__icon(src='img/icons/phone2.svg')
@@ -36,47 +32,45 @@ html(lang='ru')
     .hidden-sm-down.nav-container
       nav.nav.container
         a.nav__item(href='#about') О нас
-        a.nav__item(href='#about') Мебель
-        a.nav__item(href='#about') Аргон
+        a.nav__item(href='#furniture') Мебель
+        a.nav__item(href='#argon') Аргон
         a.nav__item(href='#portfolio') Портфолио
         a.nav__item(href='#contacts') Контакты
-        br
-        br
-        a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
-        a.nav__item(href='#how-to-make-an-order') Как сделать заказ?
-        a.nav__item(href='#our-advantages') Наши преимущества
-        a.nav__item(href='#reviews') Отзывы клиентов
-        a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
-        a.nav__item(href='#portfolio') Портфолио
-        a.nav__item(href='#they-trust-us') Нам доверяют
-        a.nav__item(href='#our-clients') Наши клиенты
-    section.work-area.tig-welding
+        //br
+        //br
+        //a.nav__item(href='#what-we-can-to-do') Что мы можем делать?
+        //a.nav__item(href='#our-advantages') Наши преимущества
+        //a.nav__item(href='#reviews') Отзывы клиентов
+        //a.nav__item(href='#questions-and-answers') Ваши вопросы, наши ответы
+        //a.nav__item(href='#they-trust-us') Нам доверяют
+    section
       .container
-        .row
-          .col-xs-12
-            a.work-area-btn.work-area-btn-margin(href='#') Сварка аргоном
-    section.work-area.making-furniture
-      .container
-        .row
-          .col-xs-12
-            a.work-area-btn.work-area-btn-margin(href='#') Изготовление мебели
-    section.work-area.outdoor
-      .container
-        .row
-          .col-xs-12
-            a.work-area-btn.work-area-btn-margin(href='#') Выездная работа
-    article.syncer
-      .container
-        .row
-          .col-xs-12
-            h2#about.syncer-heading О мастерской
-          .col-xs-12
-            p.syncer-text Steel Balls Design – многопрофильная сварочная мастерская. Мы находимся в Санкт-Петербурге и любим воплощать идеи в жизнь. Специализируемся как на нестандартных задачах, изделий с «нуля», так и решаем повседневные вопросы. Мастерская открылась теплой осенью 2015 года.
+        h1 Сварочная мастерская
+      .work-area.making-furniture
+        .container
+          .row
+            .col-xs-12
+              a.work-area-btn.work-area-btn-margin(href='#furniture') Мебель из массива и стали
+      .work-area.tig-welding
+        .container
+          .row
+            .col-xs-12
+              a.work-area-btn.work-area-btn-margin(href='#argon') Сварка аргоном
+      .work-area.outdoor
+        .container
+          .row
+            .col-xs-12
+              a.work-area-btn.work-area-btn-margin(href='#') Выездная работа
     section.syncer
       .container
         .row
           .col-xs-12
-            h2#what-we-can-to-do.syncer-heading Что мы можем делать?
+            h2#about.heading-2 О мастерской
+          .col-xs-12
+            p.syncer-text Steel Balls Design – многопрофильная сварочная мастерская. Мы находимся в Санкт-Петербурге и любим воплощать идеи в жизнь. Специализируемся как на нестандартных задачах, изделий с «нуля», так и решаем повседневные вопросы. Мастерская открылась теплой осенью 2015 года.
+        .row
+          .col-xs-12
+            h3#what-we-can-to-do.heading-3 Что мы можем делать?
           .col-xs-12
             p.syncer-text В нашей мастерской мы изготавливаем различные металлоконструкции, мебель в стиле лофт, светильники с лампами Эдисона, дизайнерские украшения для квартир, магазинов, пространств, приусадебных участков и загородных домов. Изготавливаем консоли в стиле лофт, из прочной квадратной трубы, необычные, но особо прочные стеллажи из арматуры и полосы, сварные столы и трубы малого и большого диаметра. Работаем со всеми металлами с помощью аргонодуговой сварки.
             h3.syncer-text А именно:
@@ -93,26 +87,21 @@ html(lang='ru')
       .container
         .row
           .col-xs-12
-            .syncer-heading-mark
-            h2#how-to-make-an-order.syncer-heading Как сделать заказ?
+            h2#furniture.heading-2 Мебель из массива и стали
           .col-xs-12
-            ol.syncer-text
-              li Если у вас есть вопросы по изготовлению или ремонту, то задавайте их сюда - Ваши вопросы, наши ответы
-              li Отправляйте заявку мастеру.
-              li Или на электронную почту
-                = ' '
-                a(href='mailto:master@stballs.ru') master@stballs.ru
-              li С вами свяжутся для уточнения деталей.
-              li Мастерская приступает к изготовлению (ремонту) изделия.
-              li По окончанию работ, с вами связываются, вы приезжаете и забираете заказ.
-              li У нас есть доставка по Санкт-Петербургу и по России.
-              li Возможен монтаж (установка) конструкции.
-            p.syncer-text Срок изготовления составляет от 10 рабочих дней. Время работы зависит от сложности и количества изделий. Срочные заказы оговариваются отдельно.
+            p.syncer-text Текст такой текст
     section.syncer
       .container
         .row
           .col-xs-12
-            h2#our-advantages.syncer-heading Наши преимущества
+            h2#argon.heading-2 Сварка в среде аргона
+          .col-xs-12
+            p.syncer-text Текст такой текст
+    section.syncer
+      .container
+        .row
+          .col-xs-12
+            h2#our-advantages.heading-2 Наши преимущества
             ul.syncer-text
               li Собственное производство.
               li Пожизненная гарантия на некоторые изделия.
@@ -123,17 +112,17 @@ html(lang='ru')
       .container
         .row
           .col-xs-12
-            h2#reviews.syncer-heading Отзывы клиентов
+            h2#reviews.heading-2 Отзывы клиентов
     section.syncer
       .container
         .row
           .col-xs-12
-            h2#questions-and-answers.syncer-heading Ваши вопросы, наши ответы
+            h2#questions-and-answers.heading-2 Ваши вопросы, наши ответы
     section.syncer
       .container
         .row
           .col-xs-12
-            h2#portfolio.syncer-heading Наши работы
+            h2#portfolio.heading-2 Наши работы
 
         .row-img
           .img-xs-8
@@ -181,7 +170,7 @@ html(lang='ru')
       .container
         .row
           .col-xs-12
-            h2#they-trust-us.syncer-heading Нам доверяют
+            h2#they-trust-us.heading-2 Нам доверяют
           .col-xs-6.col-sm-6.col-md-4.col-lg-3
             img.img(src='img/clients/etazi.jpg' alt='')
           .col-xs-6.col-sm-6.col-md-4.col-lg-3

@@ -1,7 +1,6 @@
 const gulp = require('gulp'),
   config = require('./gulp/config'),
   paths = config.paths,
-  names = config.names,
   build = require('./gulp/tasks/build'),
   dev = require('./gulp/tasks/dev'),
   plugins = require('gulp-load-plugins')(),
