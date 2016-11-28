@@ -56,10 +56,6 @@ function serve() {
   });
 }
 
-const cssWatch = gulp.series(css, reload());
-const htmlWatch = gulp.series(html, reload());
-const jsWatch = gulp.series(js, reload());
-
 function reload() {
   return function(done) {
     browserSync.reload();
@@ -68,9 +64,9 @@ function reload() {
 }
 
 function watch() {
-  gulp.watch(paths.stylusWatch, cssWatch);
-  gulp.watch(paths.pugWatch, htmlWatch);
-  gulp.watch(paths.jsWatch, jsWatch);
+  gulp.watch(paths.stylusWatch, gulp.series(css, reload()));
+  gulp.watch(paths.pugWatch, gulp.series(html, reload()));
+  gulp.watch(paths.jsWatch, gulp.series(js, reload()));
   gulp.watch(paths.img, copy);
 }
 
