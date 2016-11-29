@@ -1,5 +1,6 @@
 function fixedNav({
-  linkEl = document.querySelectorAll('.nav__item')
+  linkEl = document.querySelectorAll('.nav__item'),
+  offset = 39
 } = {}) {
 
   const linkLength = linkEl.length;
@@ -7,15 +8,7 @@ function fixedNav({
   for(let i = 0; i < linkLength; i++) {
     linkEl[i].addEventListener('click', function (e) {
       e.preventDefault();
-      let id = this.getAttribute('href').substring(1);
-      console.log(id);
-      let el = document.getElementById(id);
-      console.log(el);
-      let elTop = el.getBoundingClientRect().top;
-      console.log(el.scrollTop, el.offsetTop, el.clientTop, window.scrollY, el.getBoundingClientRect());
-      el.scrollIntoView();
-      window.scrollTo(0, window.scrollY - 39);
-      console.log(window.scrollY);
+      anchorClick(this, offset);
       toggleEl(navContainer, 'hidden-sm-down');
     })
   }
