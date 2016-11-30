@@ -46,16 +46,12 @@ html(lang='ru')
     section.under-fixed
       .container
         h1 Сварочная мастерская
-      .work-area.making-furniture
-        .container
-          .row
-            .col-xs-12
-              a.work-area-btn.work-area-btn-margin(href='#furniture') Мебель из массива и стали
-      .work-area.tig-welding
-        .container
-          .row
-            .col-xs-12
-              a.work-area-btn.work-area-btn-margin(href='#argon') Сварка аргоном
+      .container
+        .row
+          .col-xs-12.col-md-6.work-area.making-furniture
+            a.work-area-btn.work-area-btn-margin(href='#furniture') Мебель из массива и стали
+          .col-xs-12.col-md-6.work-area.tig-welding
+            a.work-area-btn.work-area-btn-margin(href='#argon') Сварка аргоном
       //.work-area.outdoor
         .container
           .row
@@ -100,19 +96,24 @@ html(lang='ru')
           .col-xs-12
             p.syncer-text Текст такой текст
         .row-img
-          .img-xs-8
-            img.img(src='img/bench.jpg' alt='скамья')
+          .img-xs-8.img-md-6
+            img.gallery__img.img(src='img/bench.jpg' alt='скамья')
             .gallery-title
               h3.gallery-heading Скамья лофт
-          .img-xs-4
+          .img-xs-4.img-md-3
             img.gallery__img.img(src='img/red-chair.jpg' alt='красный стул')
             img.gallery__img.img(src='img/street.jpg' alt='стул на улице')
-        .row-img
-          .img-xs-4
+          .img-xs-4.img-md-3
             img.gallery__img.img(src='img/red-chair.jpg' alt='')
             img.gallery__img.img(src='img/red-chair.jpg' alt='')
-          .img-xs-8
-            img.img(src='img/red-chair.jpg' alt='')
+          .img-xs-4.img-md-3
+            img.gallery__img.img(src='img/red-chair.jpg' alt='красный стул')
+            img.gallery__img.img(src='img/street.jpg' alt='стул на улице')
+          .img-xs-4.img-md-3
+            img.gallery__img.img(src='img/red-chair.jpg' alt='')
+            img.gallery__img.img(src='img/red-chair.jpg' alt='')
+          .img-xs-8.img-md-6
+            img.gallery__img.img(src='img/red-chair.jpg' alt='')
             .gallery-title
               h3.gallery-heading Барные стулья
               span.gallery-client для Au Pont Rouge
