@@ -24,11 +24,11 @@ $default-breakpoints = 544px, 768px, 992px, 1200px
 grid-flex(12, $gallery-margin, $gallery-suffixes, $default-breakpoints, '-img')
 
 .gallery__img
-  margin $gallery-margin * 2 0
-  &:first-child
-    margin 0 0 $gallery-margin * 2 0
-  &:last-child
-    margin $gallery-margin * 2 0 0 0
+  margin $gallery-margin * 2 0 0
+  //&:first-child
+  //  margin 0 0 $gallery-margin * 2 0
+  //&:last-child
+  //  margin $gallery-margin * 2 0 0 0
 
 .row-img
   display flex

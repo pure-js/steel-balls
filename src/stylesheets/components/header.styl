@@ -6,6 +6,7 @@ $black = #111
   width 100%
   background #fff
   z-index 6
+  top 0
 
 .main-heading
   text-align center
@@ -32,7 +33,7 @@ $black = #111
   font-size 30px
 
 .header-phone-icon-margin
-  margin 4px 8px 0 0
+  margin 4px 0 0 0
 
 .header-email
   pt-sans()
@@ -41,3 +42,5 @@ $black = #111
 
 .under-fixed
   margin-top 39px
+  +m-min($md)
+    margin-top 93px

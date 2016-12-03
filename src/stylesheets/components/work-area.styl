@@ -1,8 +1,12 @@
 .work-area
-  padding 90px 0 20px
+  padding-top 90px
+  padding-bottom 20px
   background #141414 no-repeat center center
   background-size cover
-  margin 2px 0
+  margin 2px 0 0
+  +m-min($md)
+    padding-top 190px
+    padding-bottom 30px
 
 .work-area-btn
   box-sizing border-box
@@ -14,6 +18,9 @@
   padding 10px 20px
   pt-sans()
   font-size 26px
+  transition border .25s
+  &:hover
+    border 2px solid rgba(#fff, .75)
 
 .work-area-btn-margin
   +m-min($sm)
@@ -33,4 +40,3 @@ $outdoor = rgba(0,52,192, .2)
 $outdoor2 = rgba(118,86,0, .45)
 .outdoor
   background-image linear-gradient($outdoor, $outdoor2), url('img/work-area/car.jpg')
-
