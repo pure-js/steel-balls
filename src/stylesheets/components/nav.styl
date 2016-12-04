@@ -50,10 +50,13 @@
 
 .nav-container
   position absolute
-  margin 1px 0 0 0
+  padding 1px 0 0 0
   z-index 1
   background #fff
   width 100%
+  border-bottom: 3px solid rgba(0,0,0,0.2)
+  overflow auto
+  background-clip: padding-box
   +m-min($md)
     position relative
-  overflow auto
+    border-bottom: none
