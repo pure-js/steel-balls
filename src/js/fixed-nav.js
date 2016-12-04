@@ -1,16 +1,16 @@
 function fixedNav({
   linkEl = document.querySelectorAll('.nav__item'),
-  offset = 39,
   navEl = document.querySelector('.header'),
   bodyEl = document.querySelector('.under-fixed')
 } = {}) {
 
-  const linkLength = linkEl.length;
+  const linkLength = linkEl.length,
+    navLength = navEl.offsetHeight;
 
   for(let i = 0; i < linkLength; i++) {
     linkEl[i].addEventListener('click', function (e) {
       e.preventDefault();
-      anchorClick(this, offset);
+      anchorClick(this, navLength);
       toggleEl(navContainer, 'hidden-sm-down');
     })
   }

@@ -10,6 +10,9 @@ $black = #111
 
 .main-heading
   text-align center
+  +m-min($md)
+    text-align inherit
+    padding: 10px 0 0
 
 .main-heading__link
   font-family 'Lobster', cursive
@@ -17,6 +20,9 @@ $black = #111
   font-size 36px
   text-decoration none
   line-height 1
+  +m-min($md)
+    font-size 46px
+
 
 .main-heading__description
   font-size 18px

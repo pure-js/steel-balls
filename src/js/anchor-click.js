@@ -7,15 +7,16 @@ function anchorClick(el, offset) {
 
 function anchorListen({
   linkEl = document.querySelectorAll('.work-area-btn'),
-  offset = 39
+  navEl = document.querySelector('.header')
 } = {}) {
 
-  const linkLength = linkEl.length;
+  const linkLength = linkEl.length,
+    navLength = navEl.offsetHeight;
 
   for(let i = 0; i < linkLength; i++) {
     linkEl[i].addEventListener('click', function (e) {
       e.preventDefault();
-      anchorClick(this, offset);
+      anchorClick(this, navLength);
     })
   }
 }
