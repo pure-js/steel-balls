@@ -25,14 +25,10 @@ grid-flex(12, $gallery-margin, $gallery-suffixes, $default-breakpoints, '-img')
 
 .gallery__img
   margin $gallery-margin * 2 0 0
-  //&:first-child
-  //  margin 0 0 $gallery-margin * 2 0
-  //&:last-child
-  //  margin $gallery-margin * 2 0 0 0
+  max-width 100%
+  display block
 
 .row-img
-  display flex
-  flex-wrap wrap
   margin-top $gallery-margin * 2
   &:first-child
     margin-top 0

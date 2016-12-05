@@ -63,7 +63,7 @@ function es6Min() {
 }
 
 function concat() {
-  return gulp.src(['build/cssrelpreload.js', 'build/loadCSS.js', 'build/load.js', 'build/entry.js', 'build/toggle.js', 'build/fixed-nav.js', 'build/main.js', ])
+  return gulp.src(paths.jsConcat)
     .pipe(plugins.concat('main.min.js'))
     .pipe(plugins.uglify())
     .pipe(gulp.dest(paths.build));

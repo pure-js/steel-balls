@@ -38,3 +38,6 @@ font-blast bower_components\font-awesome\fonts\fontawesome-webfont.svg assets/ic
     
 ## TODO
 - smooth scrolling
+
+## Images
+Images in a gallery should be not less than 758 px
