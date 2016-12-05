@@ -1,3 +1,13 @@
+.nav
+  background #fff
+  margin 3px auto
+  overflow hidden
+  +m-min($md)
+    float: left
+  &:after
+    position absolute
+    opacity .5
+
 .nav-btn
   background none
   cursor pointer
@@ -16,14 +26,6 @@
   font-size 34px
   pt-sans()
   padding 0 0 0 13px
-
-.nav
-  background #fff
-  margin 3px auto
-  overflow hidden
-  &:after
-    position absolute
-    opacity .5
 
 .nav__item
   pt-sans()
@@ -60,3 +62,19 @@
   +m-min($md)
     position relative
     border-bottom: none
+
+.nav-buttons
+  overflow: hidden
+  margin: 0 0 20px 0
+  +m-min($md)
+    margin: 0
+    float: right
+
+.nav-buttons__button
+  background: none
+  color #000
+  display: block
+  float: left
+  margin: 0 7px 0 0
+  &:last-child
+    margin: 0
