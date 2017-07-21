@@ -18,7 +18,7 @@ And open [http://localhost:3000](localhost:3000) in a browser if it's not happen
 
 ## For deploy
 
-    gulp deploy
+    npm deploy
 
 ## Crop images
 
