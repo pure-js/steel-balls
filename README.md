@@ -18,7 +18,7 @@ And open [http://localhost:3000](localhost:3000) in a browser if it's not happen
 
 ## For deploy
 
-    npm deploy
+    npm run deploy
 
 ## Crop images
 
@@ -28,7 +28,7 @@ And open [http://localhost:3000](localhost:3000) in a browser if it's not happen
     magick convert 'assets/welding.jpg' -crop 1119x+0+0 'assets/bg-lg.jpg'
     // magick convert 'assets/welding.jpg' -crop 543x+0+0 'assets/bg-xl.jpg'
 
-font-blast bower_components\font-awesome\fonts\fontawesome-webfont.svg assets/icons
+font-blast node_modules\font-awesome\fonts\fontawesome-webfont.svg assets/icons
 
 ## TODO
 - smooth scrolling

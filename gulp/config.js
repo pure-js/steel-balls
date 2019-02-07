@@ -16,7 +16,7 @@ module.exports = {
       return this.jsES5.concat(this.jsES6)
     },
     jsWatch: 'src/js/*.js',
-    fonts: 'bower_components/font-awesome/fonts/*.*',
+    fonts: 'node_modules/font-awesome/fonts/*.*',
     dev: '.tmp/',
     build: 'build/'
   },
